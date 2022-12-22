@@ -7,7 +7,7 @@
 **data-depth**: python library for data depth
 =============================================
 
-.. image:: _static/depth-logo.jpg
+.. image:: static/depth-logo.jpg
    :width: 400
 
 Introduction

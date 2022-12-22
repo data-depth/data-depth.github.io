@@ -13,39 +13,39 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
+  <link href="../static/styles/theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
+<link href="../static/styles/pydata-sphinx-theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
 
   
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/6.1.2/css/all.min.css">
+    href="../static/vendor/fontawesome/6.1.2/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+    href="../static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+    href="../static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+    href="../static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../static/thebelab.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
+  <link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/thebelab-helper.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/clipboard.min.js"></script>
+    <script src="../static/copybutton.js"></script>
+    <script src="../static/thebelab-helper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'multivariate/Projection';</script>
-    <link rel="shortcut icon" href="../_static/depth-logo.jpg"/>
+    <link rel="shortcut icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Convex-hull-peeling depth" href="Qhpeeling.html" />
@@ -100,8 +100,8 @@
   
 
   
-    <img src="../_static/depth-logo.jpg" class="logo__image only-light" alt="Logo image">
-    <img src="../_static/depth-logo.jpg" class="logo__image only-dark" alt="Logo image">
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="Logo image">
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark" alt="Logo image">
   
   
 </a>
@@ -341,7 +341,7 @@
 <span id="projection-depth"></span><span id="projection"></span><h1>Projection depth<a class="headerlink" href="#module-Projection" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="Projection.projection">
-<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/Projection.html#projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Projection.projection" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/Projection.html#projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Projection.projection" title="Permalink to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>Calculates approximately the projection depth of points w.r.t. a multivariate data set.</p>
 </dd>
@@ -455,7 +455,7 @@ For <code class="docutils literal notranslate"><span class="pre">solver='coordin
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/multivariate/Projection.rst.txt">
+    <a href="../sources/multivariate/Projection.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>
@@ -479,7 +479,7 @@ For <code class="docutils literal notranslate"><span class="pre">solver='coordin
   
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536"></script>
+  <script src="../static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536"></script>
 
   <footer class="bd-footer"><div class="bd-footer__inner container">
   
