@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
     <script src="../static/jquery.js"></script>
     <script src="../static/underscore.js"></script>
+    <script src="../static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../static/doctools.js"></script>
     <script src="../static/clipboard.min.js"></script>
     <script src="../static/copybutton.js"></script>
@@ -44,10 +45,11 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/Qhpeeling';</script>
+    <link rel="shortcut icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="None">
+  <meta name="docsearch:language" content="en">
   </head>
   
   
@@ -96,8 +98,9 @@
   
 
   
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="Logo image">
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">package "data-depth" 0.1.0 documentation</p>
   
 </a>
     
@@ -313,46 +316,7 @@
 <span class="kn">import</span> <span class="nn">scipy.spatial</span> <span class="k">as</span> <span class="nn">scsp</span>
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">platform</span>
-
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;linux&#39;</span><span class="p">:</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;site-packages&#39;</span><span class="p">:</span>
-            <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*ddalpha*.so&#39;</span><span class="p">)</span>
-            <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*depth_wrapper*.so&#39;</span><span class="p">)</span>
-    
-
-
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;site-packages&#39;</span><span class="p">:</span>
-            <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*ddalpha*.so&#39;</span><span class="p">)</span>
-            <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*depth_wrapper*.so&#39;</span><span class="p">)</span>
-  
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;win32&#39;</span> <span class="ow">and</span> <span class="n">platform</span><span class="o">.</span><span class="n">architecture</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;64bit&quot;</span><span class="p">:</span>
-    <span class="n">site_packages</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">if</span> <span class="s1">&#39;site-packages&#39;</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
-    
-    <span class="n">os</span><span class="o">.</span><span class="n">add_dll_directory</span><span class="p">(</span><span class="n">site_packages</span><span class="p">)</span>
-    <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*ddalpha*.dll&#39;</span><span class="p">)</span>
-    <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*depth_wrapper*.dll&#39;</span><span class="p">)</span>
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;win32&#39;</span> <span class="ow">and</span> <span class="n">platform</span><span class="o">.</span><span class="n">architecture</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;32bit&quot;</span><span class="p">:</span>
-    <span class="n">site_packages</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">if</span> <span class="s1">&#39;site-packages&#39;</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
-    
-    <span class="n">os</span><span class="o">.</span><span class="n">add_dll_directory</span><span class="p">(</span><span class="n">site_packages</span><span class="p">)</span>
-    <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*ddalpha*.dll&#39;</span><span class="p">)</span>
-    <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*depth_wrapper*.dll&#39;</span><span class="p">)</span>
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
+<span class="kn">from</span> <span class="nn">depth.multivariate.import_CDLL</span> <span class="kn">import</span> <span class="n">libExact</span>
 
 <span class="k">def</span> <span class="nf">count_convexes</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span><span class="n">points</span><span class="p">,</span><span class="n">cardinalities</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
     <span class="n">tmp_x</span><span class="o">=</span><span class="n">points</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -368,7 +332,7 @@
     <span class="n">length</span><span class="o">=</span><span class="n">PY_numObjects</span><span class="o">*</span><span class="mi">1</span>
     <span class="n">init_zeros</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
     <span class="n">isInConv</span><span class="o">=</span><span class="n">pointer</span><span class="p">((</span><span class="n">c_int</span><span class="o">*</span><span class="n">length</span><span class="p">)(</span><span class="o">*</span><span class="n">init_zeros</span><span class="p">))</span>
-    <span class="n">libr</span><span class="o">.</span><span class="n">IsInConvexes</span><span class="p">(</span><span class="n">tmp_x</span><span class="p">,</span><span class="n">dimension</span><span class="p">,</span><span class="n">tmp_cardinalities</span><span class="p">,</span><span class="n">numClasses</span><span class="p">,</span><span class="n">tmp_objects</span><span class="p">,</span><span class="n">numObjects</span><span class="p">,</span><span class="n">seed</span><span class="p">,</span><span class="n">isInConv</span><span class="p">)</span>
+    <span class="n">libExact</span><span class="o">.</span><span class="n">IsInConvexes</span><span class="p">(</span><span class="n">tmp_x</span><span class="p">,</span><span class="n">dimension</span><span class="p">,</span><span class="n">tmp_cardinalities</span><span class="p">,</span><span class="n">numClasses</span><span class="p">,</span><span class="n">tmp_objects</span><span class="p">,</span><span class="n">numObjects</span><span class="p">,</span><span class="n">seed</span><span class="p">,</span><span class="n">isInConv</span><span class="p">)</span>
     <span class="n">res</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
         <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">isInConv</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
@@ -395,15 +359,13 @@
     <span class="n">depths</span><span class="o">=</span><span class="n">depths</span><span class="o">/</span><span class="n">nrow_data</span>
     <span class="k">return</span> <span class="n">depths</span></div>
 
-
-
 <span class="n">qhpeeling</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 
 <span class="s2">Description</span>
 <span class="s2">    Calculates the convex hull peeling depth of points w.r.t. a multivariate data set.</span>
 
 <span class="s2">Usage</span>
-<span class="s2">    depth.qhpeeling(x, data)</span>
+<span class="s2">    qhpeeling(x, data)</span>
 
 <span class="s2">Arguments</span>
 <span class="s2">    x</span>
@@ -492,7 +454,7 @@
   <div class="footer-item">
     
 <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
 
   </div>

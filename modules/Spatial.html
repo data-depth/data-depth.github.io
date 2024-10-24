@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
     <script src="../static/jquery.js"></script>
     <script src="../static/underscore.js"></script>
+    <script src="../static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../static/doctools.js"></script>
     <script src="../static/clipboard.min.js"></script>
     <script src="../static/copybutton.js"></script>
@@ -44,10 +45,11 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/Spatial';</script>
+    <link rel="shortcut icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="None">
+  <meta name="docsearch:language" content="en">
   </head>
   
   
@@ -96,8 +98,9 @@
   
 
   
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="Logo image">
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">package "data-depth" 0.1.0 documentation</p>
   
 </a>
     
@@ -312,95 +315,54 @@
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">platform</span>
-
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;linux&#39;</span><span class="p">:</span>
+<span class="kn">import</span> <span class="nn">sklearn.covariance</span> <span class="k">as</span> <span class="nn">sk</span>
     
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;site-packages&#39;</span><span class="p">:</span>
-            <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*ddalpha*.so&#39;</span><span class="p">)</span>
-            <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*depth_wrapper*.so&#39;</span><span class="p">)</span>
-    
-
-
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;site-packages&#39;</span><span class="p">:</span>
-            <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*ddalpha*.so&#39;</span><span class="p">)</span>
-            <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;/*depth_wrapper*.so&#39;</span><span class="p">)</span>
-  
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;win32&#39;</span> <span class="ow">and</span> <span class="n">platform</span><span class="o">.</span><span class="n">architecture</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;64bit&quot;</span><span class="p">:</span>
-    <span class="n">site_packages</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">if</span> <span class="s1">&#39;site-packages&#39;</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
-    
-    <span class="n">os</span><span class="o">.</span><span class="n">add_dll_directory</span><span class="p">(</span><span class="n">site_packages</span><span class="p">)</span>
-    <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*ddalpha*.dll&#39;</span><span class="p">)</span>
-    <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*depth_wrapper*.dll&#39;</span><span class="p">)</span>
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">==</span><span class="s1">&#39;win32&#39;</span> <span class="ow">and</span> <span class="n">platform</span><span class="o">.</span><span class="n">architecture</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;32bit&quot;</span><span class="p">:</span>
-    <span class="n">site_packages</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">if</span> <span class="s1">&#39;site-packages&#39;</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
-    
-    <span class="n">os</span><span class="o">.</span><span class="n">add_dll_directory</span><span class="p">(</span><span class="n">site_packages</span><span class="p">)</span>
-    <span class="n">ddalpha_exact</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*ddalpha*.dll&#39;</span><span class="p">)</span>
-    <span class="n">ddalpha_approx</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">site_packages</span><span class="o">+</span><span class="s1">&#39;/depth/src/*depth_wrapper*.dll&#39;</span><span class="p">)</span>
-    <span class="n">libr</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">libRom</span><span class="o">=</span><span class="n">CDLL</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">ddalpha_approx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
+<div class="viewcode-block" id="MCD_fun"><a class="viewcode-back" href="../multivariate/Spatial.html#Spatial.MCD_fun">[docs]</a><span class="k">def</span> <span class="nf">MCD_fun</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">NeedLoc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">MinCovDet</span><span class="p">(</span><span class="n">support_fraction</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">NeedLoc</span><span class="p">:</span><span class="k">return</span><span class="p">([</span><span class="n">cov</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span><span class="n">cov</span><span class="o">.</span><span class="n">location_</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span><span class="k">return</span><span class="p">(</span><span class="n">cov</span><span class="o">.</span><span class="n">covariance_</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="spatial"><a class="viewcode-back" href="../multivariate/Spatial.html#Spatial.spatial">[docs]</a><span class="k">def</span> <span class="nf">spatial</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span><span class="n">mah_estimate</span><span class="o">=</span><span class="s1">&#39;moment&#39;</span><span class="p">,</span><span class="n">mah_parMcd</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
-        <span class="n">depths_tab</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">depths_tab</span><span class="o">=</span><span class="p">[]</span>
 
-        <span class="k">if</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;none&#39;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-                <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-        <span class="k">elif</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;moment&#39;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;moment&#39;</span><span class="p">)</span>
-                <span class="n">cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-        <span class="k">elif</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;MCD&#39;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mcd&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">cov</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-                <span class="n">w</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
-                <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w</span><span class="p">))))</span><span class="c1">#invàconfirmer</span>
-        <span class="k">else</span><span class="p">:</span>
-                <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;none&#39;</span><span class="p">:</span>
+        <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">cov</span><span class="p">[:]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">elif</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;moment&#39;</span><span class="p">:</span>
+        <span class="n">cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">mah_estimate</span><span class="o">==</span><span class="s1">&#39;MCD&#39;</span><span class="p">:</span>
+        <span class="n">cov</span><span class="o">=</span><span class="n">MCD_fun</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">mah_parMcd</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">cov</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">w</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
+        <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w</span><span class="p">))))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lambda1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-        <span class="n">depths</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-                <span class="n">interm</span><span class="o">=</span><span class="p">[]</span>
-                <span class="n">tmp1_ter</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">data</span><span class="p">)</span>
-                <span class="n">tmp1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lambda1</span><span class="p">,</span><span class="n">tmp1_ter</span><span class="p">))</span>
-                <span class="n">tmp1_bis</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">tmp1_bis</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">elements</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-                                <span class="n">interm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">elements</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-                                <span class="n">interm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-                
-                <span class="n">interm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">interm</span><span class="p">)</span>
-                <span class="n">tmp1</span><span class="o">=</span><span class="n">tmp1</span><span class="p">[</span><span class="n">interm</span><span class="p">]</span>
-                <span class="n">tmp2</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">tmp1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-                <span class="n">tmp3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
-                <span class="n">tmp1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)):</span>
-                        <span class="n">tmp3</span><span class="p">[:,</span><span class="n">jj</span><span class="p">]</span><span class="o">=</span><span class="n">tmp2</span><span class="o">*</span><span class="p">(</span><span class="n">tmp1</span><span class="p">[:][</span><span class="n">jj</span><span class="p">])</span>
-                <span class="n">tmp4</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp3</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-                <span class="n">tmp5</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">tmp4</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
-                <span class="n">tmp6</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp5</span><span class="p">)</span>
-                <span class="n">depths_tab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmp6</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">depths_tab</span></div>
-
-
-
-
-
-
-
+    <span class="n">depths</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">interm</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">tmp1_ter</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">tmp1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lambda1</span><span class="p">,</span><span class="n">tmp1_ter</span><span class="p">))</span>
+        <span class="n">tmp1_bis</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">tmp1_bis</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">elements</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">interm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">elements</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">interm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="n">interm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">interm</span><span class="p">)</span>
+        <span class="n">tmp1</span><span class="o">=</span><span class="n">tmp1</span><span class="p">[</span><span class="n">interm</span><span class="p">]</span>
+        <span class="n">tmp2</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">tmp1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">tmp3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+        <span class="n">tmp1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)):</span>
+            <span class="n">tmp3</span><span class="p">[:,</span><span class="n">jj</span><span class="p">]</span><span class="o">=</span><span class="n">tmp2</span><span class="o">*</span><span class="p">(</span><span class="n">tmp1</span><span class="p">[:][</span><span class="n">jj</span><span class="p">])</span>
+        <span class="n">tmp4</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp3</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">tmp5</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">tmp4</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">tmp6</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp5</span><span class="p">)</span>
+        <span class="n">depths_tab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmp6</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">depths_tab</span><span class="p">)</span></div>
 
 <span class="n">spatial</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="s2">&quot;&quot;&quot; </span>
 
@@ -501,7 +463,7 @@
   <div class="footer-item">
     
 <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
 
   </div>

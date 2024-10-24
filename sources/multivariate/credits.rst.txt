@@ -5,7 +5,7 @@ The :math:`\texttt{data-depth}` project started as an initiative to consolidate 
 
 Special thanks are to the Hi! Paris team, which has given the necessary starting impulse by translating (in part) codes of the R-package :math:`\texttt{ddalpha}` (those by Pavlo Mozharovskyi, Rainer Dyckerhoff, and Oleksii Pokotylo), and---together with Romain Valla---improving in general the initial codes of the library.
 
-The project is currently being led Pavlo Mozharovskyi: https://perso.telecom-paristech.fr/mozharovskyi/
+The project is currently being led by Pavlo Mozharovskyi: https://perso.telecom-paristech.fr/mozharovskyi/
 
 Contributors
 ------------
@@ -14,6 +14,8 @@ Contributors
 * Rainer Dyckerhoff, <rainer.dyckerhoff at statistik.uni-koeln.de>
 * Oleksii Pokotylo, <alexey.pokotylo at gmail.com>
 * Romain Valla, <romain.valla at telecom-paris.fr>
+* Arturo Castellanos Salinas, <arturo.castellanos@telecom-paris.fr>
 * Pierre-Antoine Amiand Leroy, <pierre-antoine.amiand-leroy at ip-paris.fr> (on behalf of Hi! Paris)
 * Amine Yamoul, <amine.yamoul at capgemini.com> (on behalf of Hi! Paris)
 * Kevin Aggoun, <kevin.aggoun at capgemini.com> (on behalf of Hi! Paris)
+* Contribution of the Starting Grant (JCJC) of the French National Research Agency (ANR) in the category Artificial Intelligence (CE23) is greatly acknowledged (grant number ANR-21-CE23-0029-01).

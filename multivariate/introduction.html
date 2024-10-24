@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Presentation &#8212; package &#34;data-depth&#34; 0.1.0 documentation</title>
   <script>
@@ -37,6 +37,7 @@
     <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
     <script src="../static/jquery.js"></script>
     <script src="../static/underscore.js"></script>
+    <script src="../static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../static/doctools.js"></script>
     <script src="../static/clipboard.min.js"></script>
     <script src="../static/copybutton.js"></script>
@@ -53,7 +54,7 @@
     <link rel="next" title="Multivariate" href="modules.html" />
     <link rel="prev" title="data-depth: python library for data depth" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="None">
+  <meta name="docsearch:language" content="en">
   </head>
   
   
@@ -314,24 +315,26 @@
             <article class="bd-article" role="main">
               
   <section id="presentation">
-<h1>Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">#</a></h1>
+<h1>Presentation<a class="headerlink" href="#presentation" title="Permalink to this heading">#</a></h1>
 <section id="abstract">
-<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">#</a></h2>
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
 <p>Following the seminal idea of Tukey (1975), data depth is a function that measures how close an arbitrary point of the space is located to an implicitly defined center of a data cloud. Having undergone theoretical and computational developments, it is now employed in numerous applications. The <span class="math notranslate nohighlight">\(\texttt{data-depth}\)</span> library is a software directed to fuse experience of the applicant with recent achievements in the area of data depth. Library <span class="math notranslate nohighlight">\(\texttt{data-depth}\)</span> provides an implementation for exact and approximate computation of most reasonable and widely applied notions of data depth.</p>
 </section>
 <section id="general-description-of-the-library">
-<h2>General description of the library<a class="headerlink" href="#general-description-of-the-library" title="Permalink to this headline">#</a></h2>
+<h2>General description of the library<a class="headerlink" href="#general-description-of-the-library" title="Permalink to this heading">#</a></h2>
 <p>Learning from data has illustrated uncountable successes in the past decades and became a general methodology for knowledge extraction from real-world observations. Its approaches rely profoundly on providing a meaningful ordering of data. In unsupervised machine learning, data ordering uncovers the structure of raw, unlabelled data, e.g., by data clustering or anomaly detection. It measures degree of adherence to a class in the supervised learning. In data analysis, data ordering explores the geometry of data, allows for their relevant visualisation, estimation of location and scatter, and statistical inference. Intrinsically based on data ordering, cumulative distribution function, quantiles, and ranks are ubiquitous for presentation of data or summary of analysis and crucial for definition of losses in machine learning models.</p>
 <p>Introduced by John W. Tukey, data depth is a statistical function that measures centrality of an observation with respect to distribution, with an empirical distribution (on a data set) being its particular case. Consider a data set, say <span class="math notranslate nohighlight">\(\textit{X} = {x_1,...,x_n} \, \in \, \mathbb{R}^d\)</span>. For an arbitrary point of the same space, <span class="math notranslate nohighlight">\(x \, \in \, \mathbb{R}^d\)</span>, data depth is a function of <span class="math notranslate nohighlight">\((x,\textit{X})\)</span> that maps to <span class="math notranslate nohighlight">\(D(x,\textit{X})\)</span>, and returns a value between 0 and 1. This value characterises how central <span class="math notranslate nohighlight">\(x\)</span> is located in <span class="math notranslate nohighlight">\(\textit{X}\)</span>. The higher the value of the depth, the more central is <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(\textit{X}\)</span>, and vice versa low values of depth indicate distributional farness of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>By exploiting the geometry of data, the depth function is fully non-parametric, robust to both outliers and heavy tailed distributions, satisfies desirable invariances (like, e.g., affine invariance), and is used in a variety of tasks as a generalisation of quantiles in higher dimensions and an alternative to the probability density. Nowadays, these advantages make data depth vital for many applications: supervised and unsupervised machine learning, robust optimisation, financial risk assessment, statistical quality control, extreme value theory, imputation of missing data, to name but a few. Many notions to define <span class="math notranslate nohighlight">\(D(x,\textit{X})\)</span> have been developed, with halfspace, simplicial, spatial or projection depths being the most popular ones. For further information, the applicant is referred to surveys, with numerous works appearing each year in this active and rapidly growing field.</p>
 </section>
 <section id="specifications">
-<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">#</a></h2>
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">#</a></h2>
 <p>12 multivariate depths are implemented in the <span class="math notranslate nohighlight">\(\texttt{data-depth}\)</span> library, in both exact and approximate - to avoid excessive computational time - version:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference internal" href="Aprojection.html#aprojection"><span class="std std-ref">asymmetric projection</span></a> depth [approximate];</p></li>
 <li><p><a class="reference internal" href="BetaSkeleton.html#betaskeleton"><span class="std std-ref">beta-skeleton</span></a> depth, including spherical and lens depths as special cases [exact];</p></li>
+<li><p><a class="reference internal" href="Cexpchull.html#cexpchull"><span class="std std-ref">continous expected convex hull</span></a> depth [approximate];</p></li>
+<li><p><a class="reference internal" href="Cexpchullstar.html#cexpchullstar"><span class="std std-ref">continous modified expected convex hull</span></a> depth [approximate];</p></li>
 <li><p><a class="reference internal" href="Qhpeeling.html#qhpeeling"><span class="std std-ref">convex hull peeling</span></a> (also called onion) depth [exact];</p></li>
 <li><p><a class="reference internal" href="Halfspace.html#halfspace"><span class="std std-ref">halfspace</span></a> (also called Tukey or location) depth [exact and approximate];</p></li>
 <li><p><a class="reference internal" href="L2.html#l2"><span class="std std-ref">L2</span></a> depth [exact];</p></li>
@@ -341,13 +344,14 @@
 <li><p><a class="reference internal" href="Simplicial.html#simplicial"><span class="std std-ref">simplicial</span></a> depth [exact and approximate];</p></li>
 <li><p><a class="reference internal" href="SimplicialVolume.html#simplicialvolume"><span class="std std-ref">simplicial volume</span></a> (also called Oja) depth [exact and approximate];</p></li>
 <li><p><a class="reference internal" href="Spatial.html#spatial"><span class="std std-ref">spatial</span></a> depth [exact];</p></li>
-<li><p><a class="reference internal" href="Zonoid.html#zonoid"><span class="std std-ref">zonoid</span></a> depth [exact and approximate].</p></li>
+<li><p><a class="reference internal" href="Zonoid.html#zonoid"><span class="std std-ref">zonoid</span></a> depth [exact and approximate];</p></li>
+<li><p><a class="reference internal" href="MCD.html#mcd"><span class="std std-ref">mcd</span></a> minimum covariance determinant estimator.</p></li>
 </ul>
 </div></blockquote>
 <p>The mentioned below publications are presenting, from a general point of view, the data depth methodology and some of its most important applications. More references follow in the sections dedicated to particular functions of the <span class="math notranslate nohighlight">\(\texttt{data-depth}\)</span> library.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Mosler, K. and Mozharovskyi, P. (2022). Choosing among notions of multivariate depth statistics. <em>Statistical Science</em>, 37(3), 348-368.</p></li>
 <li><p>Mosler, K. (2013). Depth statistics. Mosler, K. (2013). Depth statistics. In C. Becker, R. Fried, and S. Kuhnt (Eds.), <em>Robustness and Complex Data Structures: Festschrift in Honour of Ursula Gather</em>, Springer (Berlin), 17–34.</p></li>
@@ -478,7 +482,7 @@
   <div class="footer-item">
     
 <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
 
   </div>

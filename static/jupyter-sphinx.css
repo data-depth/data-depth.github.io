@@ -19,7 +19,7 @@ to display jupter-sphinx cells in a Jupyter-like style.
 If you want to adjust the styles, add additional custom CSS to override these
 styles.
 
-After a build, this stylesheet is loaded from ./_static/jupyter-sphinx.css .
+After a build, this stylesheet is loaded from ./static/jupyter-sphinx.css .
 
 */
 

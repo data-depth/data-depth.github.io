@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Mahalanobis depth &#8212; package &#34;data-depth&#34; 0.1.0 documentation</title>
+    <title>Continuous modified expected convex hull depth &#8212; package &#34;data-depth&#34; 0.1.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -45,12 +45,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'multivariate/Mahalanobis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'multivariate/Cexpchullstar';</script>
     <link rel="shortcut icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Potential depth" href="Potential.html" />
-    <link rel="prev" title="L2-depth" href="L2.html" />
+    <link rel="next" title="Geometrical depth" href="Geometrical.html" />
+    <link rel="prev" title="Continuous expected convex hull depth" href="Cexpchull.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -301,11 +301,11 @@
 <li class="toctree-l1"><a class="reference internal" href="Aprojection.html">Asymmetric projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BetaSkeleton.html">Beta-skeleton depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Cexpchull.html">Continuous expected convex hull depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Cexpchullstar.html">Continuous modified expected convex hull depth</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Continuous modified expected convex hull depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Geometrical.html">Geometrical depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Halfspace.html">Halfspace depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="L2.html">L2-depth</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mahalanobis depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mahalanobis.html">Mahalanobis depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Potential.html">Potential depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Projection.html">Projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Qhpeeling.html">Convex-hull-peeling depth</a></li>
@@ -342,32 +342,20 @@
             
             <article class="bd-article" role="main">
               
-  <section id="module-Mahalanobis">
-<span id="mahalanobis-depth"></span><span id="mahalanobis"></span><h1>Mahalanobis depth<a class="headerlink" href="#module-Mahalanobis" title="Permalink to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="Mahalanobis.mahalanobis">
-<span class="sig-name descname"><span class="pre">mahalanobis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_estimate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'moment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_parMcd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/Mahalanobis.html#mahalanobis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Mahalanobis.mahalanobis" title="Permalink to this definition">#</a></dt>
+  <section id="continuous-modified-expected-convex-hull-depth">
+<span id="cexpchullstar"></span><h1>Continuous modified expected convex hull depth<a class="headerlink" href="#continuous-modified-expected-convex-hull-depth" title="Permalink to this heading">#</a></h1>
+<span class="target" id="module-Cexpchullstar"></span><dl class="py function">
+<dt class="sig sig-object py" id="Cexpchullstar.cexpchullstar">
+<span class="sig-name descname"><span class="pre">cexpchullstar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/Cexpchullstar.html#cexpchullstar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Cexpchullstar.cexpchullstar" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Calculates the Mahalanobis depth of points w.r.t. a multivariate data set.</p>
+<dt>Description</dt><dd><p>Calculates approximately the continuous modified explected convex hull depth of points w.r.t. a multivariate data set.</p>
 </dd>
 <dt>Arguments</dt><dd><dl>
 <dt>x</dt><dd><p>Matrix of objects (numerical vector as one object) whose depth is to be calculated;
-each row contains a d-variate point. Should have the same dimension as
-data.</p>
+each row contains a d-variate point. Should have the same dimension as data.</p>
 </dd>
 <dt>data</dt><dd><p>Matrix of data where each row contains a d-variate point, w.r.t. which the depth
 is to be calculated.</p>
-</dd>
-<dt>exact</dt><dd><p>The type of the used method. The default is <code class="docutils literal notranslate"><span class="pre">exact=False</span></code>, which leads to approx-
-imate computation of the Mahalanobis depth using the method defined by the argument <code class="docutils literal notranslate"><span class="pre">solver</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">exact=True</span></code>, the Mahalanobis depth is computed exactly, using the closed-form expression.</p>
-</dd>
-<dt>mah_estimate</dt><dd><p>A character string specifying which estimates to use when calculating the Mahalanobis depth; can be “‘moment’” or <code class="docutils literal notranslate"><span class="pre">'MCD'</span></code>,
-determining whether traditional moment or Minimum Covariance Determinant (MCD)
-estimates for mean and covariance are used. By default <code class="docutils literal notranslate"><span class="pre">'moment'</span></code> is used.</p>
-</dd>
-<dt>mah_parMcd</dt><dd><p>is the value of the argument alpha for the function covMcd; is used when
-mah.estimate = <code class="docutils literal notranslate"><span class="pre">'MCD'</span></code>.</p>
 </dd>
 <dt>solver</dt><dd><p>The type of solver used to approximate the depth.
 {<code class="docutils literal notranslate"><span class="pre">'simplegrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simplerandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedrandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'coordinatedescent'</span></code>, <code class="docutils literal notranslate"><span class="pre">'randomsimplices'</span></code>, <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simulatedannealing'</span></code>}</p>
@@ -381,8 +369,8 @@ faster so they are run several time to achieve <code class="docutils literal not
 <div class="line">If <code class="docutils literal notranslate"><span class="pre">option=3</span></code>, depths calculated at every iteration are also returned.</div>
 <div class="line">If <code class="docutils literal notranslate"><span class="pre">option=4</span></code>, random directions used to project depths are also returned with indices of converging for the solver selected.</div>
 </div>
-<p>n_refinements
-Set the maximum of iteration for computing the depth of one point.
+</dd>
+<dt>n_refinements</dt><dd><p>Set the maximum of iteration for computing the depth of one point.
 For <code class="docutils literal notranslate"><span class="pre">solver='refinedrandom'</span></code> or <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>.</p>
 </dd>
 <dt>sphcap_shrink</dt><dd><p>It’s the shrinking of the spherical cap. For <code class="docutils literal notranslate"><span class="pre">solver='refinedrandom'</span></code> or <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>.</p>
@@ -393,7 +381,7 @@ For <code class="docutils literal notranslate"><span class="pre">solver='refined
 </dd>
 <dt>cap_size</dt><dd><p>It’s the size of the spherical cap. For <code class="docutils literal notranslate"><span class="pre">solver='simulatedannealing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>.</p>
 </dd>
-<dt>start</dt><dd><p>{<code class="docutils literal notranslate"><span class="pre">'mean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'random'</span></code>}.
+<dt>start</dt><dd><p>{‘mean’, ‘random’}.
 For <code class="docutils literal notranslate"><span class="pre">solver='simulatedannealing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, it’s the method used to compute the first depth.</p>
 </dd>
 <dt>space</dt><dd><p>{<code class="docutils literal notranslate"><span class="pre">'sphere'</span></code>, <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>}.
@@ -407,22 +395,20 @@ For <code class="docutils literal notranslate"><span class="pre">solver='coordin
 </dl>
 </dd>
 <dt>References</dt><dd><ul class="simple">
-<li><p>Mahalanobis, P. C. (1936). On the generalized distance in statistics. <em>Proceedings of the National Institute of Sciences of India</em>, 12, 49–55.</p></li>
-<li><p>Mosler, K. and Mozharovskyi, P. (2022). Choosing among notions of multivariate depth statistics. <em>Statistical Science</em>, 37(3), 348-368.</p></li>
+<li><p>Dyckerhoff, R. and Mosler, K. (2011). Weighted-mean trimming of multivariate data. <em>Journal of Multivariate Analysis</em>, 102, 405–421.</p></li>
+<li><p>Dyckerhoff, R., Mozharovskyi, P., and Nagy, S. (2021). Approximate computation of projection depths. <em>Computational Statistics and Data Analysis</em>, 157, 107166.</p></li>
 </ul>
 </dd>
 <dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">depth.multivariate</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mat1</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mat2</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mat2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mahalanobis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="go">[0.17849871 0.10412453 0.1331417  0.13578021 0.3154836  0.29103769</span>
-<span class="go">    0.13398989 0.13913017 0.59339051 0.10556139]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mahalanobis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="o">=</span><span class="s2">&quot;MCD&quot;</span><span class="p">,</span> <span class="n">mah_parMcd</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
-<span class="go">[0.17758703 0.10367974 0.131705   0.13575221 0.31847867 0.29034948</span>
-<span class="go">    0.13291613 0.13792774 0.59094958 0.10491694]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cexpchull</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="go">[0.090223   0.19577999 0.15769263 0.20123535 0.10375507 0.14635662</span>
+<span class="go"> 0.20611053 0.17846703 0.19801984 0.23230606]</span>
 </pre></div>
 </div>
 </dd>
@@ -439,17 +425,17 @@ For <code class="docutils literal notranslate"><span class="pre">solver='coordin
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="L2.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="Cexpchull.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">L2-depth</p>
+          <p class="prev-next-title">Continuous expected convex hull depth</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="Potential.html" title="next page">
+  <a class='right-next' id="next-link" href="Geometrical.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Potential depth</p>
+      <p class="prev-next-title">Geometrical depth</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -474,7 +460,7 @@ For <code class="docutils literal notranslate"><span class="pre">solver='coordin
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../sources/multivariate/Mahalanobis.rst.txt">
+    <a href="../sources/multivariate/Cexpchullstar.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>

@@ -4,8 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aprojection &#8212; package &#34;data-depth&#34; 0.1.0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Minimum covariance determinant estimator &#8212; package &#34;data-depth&#34; 0.1.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -44,10 +45,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/Aprojection';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'multivariate/MCD';</script>
     <link rel="shortcut icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Credits" href="credits.html" />
+    <link rel="prev" title="Zonoid depth" href="Zonoid.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -118,28 +121,28 @@
     <ul id="navbar-main-elements" class="navbar-nav">
         
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/introduction.html">
+                    <a class="nav-link" href="introduction.html">
                         Presentation
                     </a>
                 </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/modules.html">
+                <li class="nav-item current active">
+                    <a class="nav-link" href="modules.html">
                         Multivariate
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/credits.html">
+                    <a class="nav-link" href="credits.html">
                         Credits
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/license.html">
+                    <a class="nav-link" href="license.html">
                         License
                     </a>
                 </li>
@@ -206,7 +209,7 @@
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div class="bd-sidebar-primary bd-sidebar">
         
   
   <div class="sidebar-header-items sidebar-primary__section">
@@ -222,28 +225,28 @@
     <ul id="navbar-main-elements" class="navbar-nav">
         
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/introduction.html">
+                    <a class="nav-link" href="introduction.html">
                         Presentation
                     </a>
                 </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/modules.html">
+                <li class="nav-item current active">
+                    <a class="nav-link" href="modules.html">
                         Multivariate
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/credits.html">
+                    <a class="nav-link" href="credits.html">
                         Credits
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../multivariate/license.html">
+                    <a class="nav-link" href="license.html">
                         License
                     </a>
                 </li>
@@ -288,6 +291,36 @@
   </div>
 
   
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Aprojection.html">Asymmetric projection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BetaSkeleton.html">Beta-skeleton depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cexpchull.html">Continuous expected convex hull depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cexpchullstar.html">Continuous modified expected convex hull depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geometrical.html">Geometrical depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Halfspace.html">Halfspace depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L2.html">L2-depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mahalanobis.html">Mahalanobis depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Potential.html">Potential depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Projection.html">Projection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Qhpeeling.html">Convex-hull-peeling depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simplicial.html">Simplicial depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimplicialVolume.html">Simplicial volume depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spatial.html">Spatial depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zonoid.html">Zonoid depth</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Minimum covariance determinant estimator</a></li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
 
   
   <div class="sidebar-end-items sidebar-primary__section">
@@ -309,107 +342,40 @@
             
             <article class="bd-article" role="main">
               
-  <h1>Source code for Aprojection</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">depth.multivariate.Depth_approximation</span> <span class="kn">import</span> <span class="n">depth_approximation</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">platform</span>
-<span class="kn">from</span> <span class="nn">depth.multivariate.import_CDLL</span> <span class="kn">import</span> <span class="n">libApprox</span>
+  <section id="minimum-covariance-determinant-estimator">
+<span id="mcd"></span><h1>Minimum covariance determinant estimator<a class="headerlink" href="#minimum-covariance-determinant-estimator" title="Permalink to this heading">#</a></h1>
+<span class="target" id="module-MCD"></span><dl class="py function">
+<dt class="sig sig-object py" id="MCD.MCD">
+<span class="sig-name descname"><span class="pre">MCD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mfull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nstep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hiRegimeCompleteLastComp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/MCD.html#MCD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MCD.MCD" title="Permalink to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Calculates the Minimum Covariance Determinant covariance matrix</p>
+</dd>
+<dt>Arguments</dt><dd><dl class="simple">
+<dt>data</dt><dd><p>Matrix of data where each row contains a d-variate point.</p>
+</dd>
+<dt>h</dt><dd><p>Parameter for size of index set</p>
+</dd>
+<dt>mfull</dt><dd><p>in the high regime n&gt;600, number of best results we keep before computing on the full dataset (cf paper by Rousseuw and van Driessen).</p>
+</dd>
+<dt>hiRegimeCompleteLastComp</dt><dd><p>true if in the high n regime case in the last computation we carry computation until convergence of the solutions,
+false if we use a fix amount of nstep number of steps.</p>
+</dd>
+<dt>nstep</dt><dd><p>in high n regime, finite number of steps to carry last computations for final solutions if we do not want to compute until convergence
+(hiRegimeCompleteLastComp is set to false).</p>
+</dd>
+</dl>
+</dd>
+<dt>References</dt><dd><ul class="simple">
+<li><p>Peter J. Rousseeuw &amp; Katrien Van Driessen (1999) A Fast Algorithm for the Minimum Covariance Determinant Estimator, Technometrics, 41:3, 212-223</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><p>To write</p>
+</dd>
+</dl>
+</dd></dl>
 
-<div class="viewcode-block" id="aprojection"><a class="viewcode-back" href="../multivariate/Aprojection.html#Aprojection.aprojection">[docs]</a><span class="k">def</span> <span class="nf">aprojection</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
-        <span class="n">solver</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span>
-        <span class="n">NRandom</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
-        <span class="n">option</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">n_refinements</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="n">sphcap_shrink</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
-        <span class="n">alpha_Dirichlet</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span>
-        <span class="n">cooling_factor</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-        <span class="n">cap_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-        <span class="n">space</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span>
-        <span class="n">line_solver</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span>
-        <span class="n">bound_gc</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+</section>
 
-    <span class="k">return</span> <span class="n">depth_approximation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;aprojection&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">n_refinements</span><span class="p">,</span>
-    <span class="n">sphcap_shrink</span><span class="p">,</span> <span class="n">alpha_Dirichlet</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="p">,</span> <span class="n">cap_size</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">line_solver</span><span class="p">,</span> <span class="n">bound_gc</span><span class="p">)</span></div>
-
-<span class="n">aprojection</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
-
-<span class="s2">Description</span>
-<span class="s2">    Calculates approximately the asymmetric projection depth of points w.r.t. a multivariate data set.</span>
-
-<span class="s2">Arguments</span>
-<span class="s2">    x 			</span>
-<span class="s2">            Matrix of objects (numerical vector as one object) whose depth is to be calculated;</span>
-<span class="s2">            each row contains a d-variate point. Should have the same dimension as data.</span>
-
-<span class="s2">    data 			</span>
-<span class="s2">            Matrix of data where each row contains a d-variate point, w.r.t. which the depth</span>
-<span class="s2">            is to be calculated.</span>
-
-<span class="s2">    solver</span>
-<span class="s2">        The type of solver used to approximate the depth.</span>
-<span class="s2">        {``&#39;simplegrid&#39;``, ``&#39;refinedgrid&#39;``, ``&#39;simplerandom&#39;``, ``&#39;refinedrandom&#39;``, ``&#39;coordinatedescent&#39;``, ``&#39;randomsimplices&#39;``, ``&#39;neldermead&#39;``, ``&#39;simulatedannealing&#39;``}</span>
-
-<span class="s2">    NRandom</span>
-<span class="s2">        The total number of iterations to compute the depth. Some solvers are converging</span>
-<span class="s2">        faster so they are run several time to achieve ``NRandom`` iterations.</span>
-<span class="s2">                   </span>
-<span class="s2">    option</span>
-<span class="s2">        |        If ``option=1``, only approximated depths are returned.</span>
-<span class="s2">        |        If ``option=2``, best directions to approximate depths are also returned.</span>
-<span class="s2">        |        If ``option=3``, depths calculated at every iteration are also returned.</span>
-<span class="s2">        |        If ``option=4``, random directions used to project depths are also returned with indices of converging for the solver selected.</span>
-
-<span class="s2">    n_refinements</span>
-<span class="s2">        Set the maximum of iteration for computing the depth of one point.</span>
-<span class="s2">        For ``solver=&#39;refinedrandom&#39;`` or ``&#39;refinedgrid&#39;``.</span>
-<span class="s2">                      </span>
-<span class="s2">    sphcap_shrink</span>
-<span class="s2">        It&#39;s the shrinking of the spherical cap. For ``solver=&#39;refinedrandom&#39;`` or ``&#39;refinedgrid&#39;``.</span>
-
-<span class="s2">    alpha_Dirichlet</span>
-<span class="s2">        It&#39;s the parameter of the Dirichlet distribution. For ``solver=&#39;randomsimplices&#39;``.</span>
-
-<span class="s2">    cooling_factor</span>
-<span class="s2">        It&#39;s the cooling factor. For ``solver=&#39;simulatedannealing&#39;``.</span>
-
-<span class="s2">    cap_size</span>
-<span class="s2">        It&#39;s the size of the spherical cap. For ``solver=&#39;simulatedannealing&#39;`` or ``&#39;neldermead&#39;``.</span>
-
-<span class="s2">    start</span>
-<span class="s2">        {&#39;mean&#39;, &#39;random&#39;}.</span>
-<span class="s2">        For ``solver=&#39;simulatedannealing&#39;`` or ``&#39;neldermead&#39;``, it&#39;s the method used to compute the first depth.</span>
-<span class="s2">                      </span>
-<span class="s2">    space</span>
-<span class="s2">        {``&#39;sphere&#39;``, ``&#39;euclidean&#39;``}.</span>
-<span class="s2">        For ``solver=&#39;coordinatedescent&#39;`` or ``&#39;neldermead&#39;``, it&#39;s the type of spacecin which the solver is running.</span>
-<span class="s2">                      </span>
-<span class="s2">    line_solver</span>
-<span class="s2">        {``&#39;uniform&#39;``, ``&#39;goldensection&#39;``}.</span>
-<span class="s2">        For ``solver=&#39;coordinatedescent&#39;``, it&#39;s the line searh strategy used by this solver.</span>
-<span class="s2">                      </span>
-<span class="s2">    bound_gc</span>
-<span class="s2">        For ``solver=&#39;neldermead&#39;``, it&#39;s ``True`` if the search is limited to the closed hemisphere.</span>
-
-<span class="s2">References</span>
-<span class="s2">    * Dyckerhoff, R. (2004). Data depths satisfying the projection property. *Allgemeines Statistisches Archiv*, 88, 163–190.</span>
-<span class="s2">    </span>
-<span class="s2">    * Dyckerhoff, R., Mozharovskyi, P., and Nagy, S. (2021). Approximate computation of projection depths. *Computational Statistics and Data Analysis*, 157, 107166.</span>
-
-<span class="s2">Examples</span>
-<span class="s2">            &gt;&gt;&gt; import numpy as np</span>
-<span class="s2">            &gt;&gt;&gt; from depth.multivariate import *</span>
-<span class="s2">            &gt;&gt;&gt; np.random.seed(0)</span>
-<span class="s2">            &gt;&gt;&gt; mat1=[[1, 0, 0, 0, 0],[0, 2, 0, 0, 0],[0, 0, 3, 0, 0],[0, 0, 0, 2, 0],[0, 0, 0, 0, 1]]</span>
-<span class="s2">            &gt;&gt;&gt; mat2=[[1, 0, 0, 0, 0],[0, 1, 0, 0, 0],[0, 0, 1, 0, 0],[0, 0, 0, 1, 0],[0, 0, 0, 0, 1]]</span>
-<span class="s2">            &gt;&gt;&gt; x = np.random.multivariate_normal([1,1,1,1,1], mat2, 10)</span>
-<span class="s2">            &gt;&gt;&gt; data = np.random.multivariate_normal([0,0,0,0,0], mat1, 100)</span>
-<span class="s2">            &gt;&gt;&gt; aprojection(x, data, NRandom=1000)</span>
-<span class="s2">            [0.090223   0.19577999 0.15769263 0.20123535 0.10375507 0.14635662</span>
-<span class="s2">             0.20611053 0.17846703 0.19801984 0.23230606]             </span>
-<span class="s2">&quot;&quot;&quot;</span>
-</pre></div>
 
             </article>
             
@@ -418,6 +384,20 @@
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="Zonoid.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Zonoid depth</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="credits.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Credits</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
             
@@ -438,6 +418,12 @@
 
 <div class="toc-item">
   
+<div class="tocsection sourcelink">
+    <a href="../sources/multivariate/MCD.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+</div>
+
 </div>
 
             </div>
