@@ -12,6 +12,7 @@ Multivariate
    Halfspace
    L2
    Mahalanobis
+   plot
    Potential
    Projection
    Qhpeeling

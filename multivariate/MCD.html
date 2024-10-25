@@ -306,6 +306,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Halfspace.html">Halfspace depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="L2.html">L2-depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Mahalanobis.html">Mahalanobis depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">Plotting functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Potential.html">Potential depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Projection.html">Projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Qhpeeling.html">Convex-hull-peeling depth</a></li>
@@ -353,14 +354,14 @@
 <dt>Arguments</dt><dd><dl class="simple">
 <dt>data</dt><dd><p>Matrix of data where each row contains a d-variate point.</p>
 </dd>
-<dt>h</dt><dd><p>Parameter for size of index set</p>
+<dt>h</dt><dd><p>Size of the data subset to use during estimation.</p>
 </dd>
-<dt>mfull</dt><dd><p>in the high regime n&gt;600, number of best results we keep before computing on the full dataset (cf paper by Rousseuw and van Driessen).</p>
+<dt>mfull</dt><dd><p>In the high regime n&gt;600, number of best results we keep before computing on the full dataset (cf paper by Rousseuw and van Driessen).</p>
 </dd>
-<dt>hiRegimeCompleteLastComp</dt><dd><p>true if in the high n regime case in the last computation we carry computation until convergence of the solutions,
+<dt>hiRegimeCompleteLastComp</dt><dd><p>“True” if in the high n regime case in the last computation we carry computation until convergence of the solutions,
 false if we use a fix amount of nstep number of steps.</p>
 </dd>
-<dt>nstep</dt><dd><p>in high n regime, finite number of steps to carry last computations for final solutions if we do not want to compute until convergence
+<dt>nstep</dt><dd><p>In high n regime, finite number of steps to carry last computations for final solutions if we do not want to compute until convergence
 (hiRegimeCompleteLastComp is set to false).</p>
 </dd>
 </dl>

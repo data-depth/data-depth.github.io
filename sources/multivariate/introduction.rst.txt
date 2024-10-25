@@ -27,6 +27,7 @@ Specifications
  - :ref:`continous expected convex hull <Cexpchull>` depth [approximate];
  - :ref:`continous modified expected convex hull <Cexpchullstar>` depth [approximate];
  - :ref:`convex hull peeling <Qhpeeling>` (also called onion) depth [exact];
+ - :ref:`geometrical <Geometrical>` depth [approximate];
  - :ref:`halfspace <Halfspace>` (also called Tukey or location) depth [exact and approximate];
  - :ref:`L2 <L2>` depth [exact];
  - :ref:`Mahalanobis <Mahalanobis>` depth [exact and approximate];
