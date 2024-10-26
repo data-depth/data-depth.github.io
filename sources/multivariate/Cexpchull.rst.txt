@@ -1,7 +1,7 @@
 .. _Cexpchull:
 
 Continuous expected convex hull depth
-===========================
+=====================================
 
 .. automodule:: Cexpchull
    :members:
