@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Geometrical depth &#8212; package &#34;data-depth&#34; 1.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../static/documentation_options.js?v=fc837d61"></script>
+    <script src="../static/doctools.js?v=9bcbadda"></script>
+    <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../static/copybutton.js?v=4ea706d9"></script>
+    <script src="../static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notions/Geometrical';</script>
+    <link rel="icon" href="../static/depth-logo.jpg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Halfspace depth" href="Halfspace.html" />
+    <link rel="prev" title="Continuous modified expected convex hull depth" href="Cexpchullstar.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.0 documentation - Home"/>
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../DepthEucl.html">Depth in Euclidean space (multivariate depth)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Aprojection.html">Asymmetric projection depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BetaSkeleton.html">Beta-skeleton depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cexpchull.html">Continuous expected convex hull depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cexpchullstar.html">Continuous modified expected convex hull depth</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Geometrical depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Halfspace.html">Halfspace depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L2.html">L2-depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mahalanobis.html">Mahalanobis depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Potential.html">Potential depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Projection.html">Projection depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Qhpeeling.html">Convex-hull-peeling depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Simplicial.html">Simplicial depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SimplicialVolume.html">Simplicial volume depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spatial.html">Spatial depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Zonoid.html">Zonoid depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_dataset.html">Modify dataset</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DepthPlot.html">Depth(-based) visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plot/depth_mesh.html">depth_mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/depth_plot2d.html">depth_plot2d</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../modules.html" class="nav-link">Data-depth</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../DepthEucl.html" class="nav-link">Depth in Euclidean space (multivariate depth)</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Geometrical depth</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="geometrical-depth">
+<span id="geometrical"></span><h1>Geometrical depth<a class="headerlink" href="#geometrical-depth" title="Link to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">geometrical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'lowest_depth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'final_depht_dir'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'all_depth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'all_depth_directions'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'final_depht_dir'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.geometrical"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Calculates approximately the geometrical depth of points w.r.t. a multivariate data set.</p>
+<dl>
+<dt>Arguments</dt><dd><dl>
+<dt>x: array-like or None, default=None</dt><dd><p>Matrix of objects (numerical vector as one object) whose depth is to be calculated;
+each row contains a d-variate point. Should have the same dimension as
+data.</p>
+</dd>
+<dt>solver<span class="classifier">str  {<code class="docutils literal notranslate"><span class="pre">'simplegrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simplerandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedrandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'coordinatedescent'</span></code>, <code class="docutils literal notranslate"><span class="pre">'randomsimplices'</span></code>, <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simulatedannealing'</span></code>}, default=”neldermead”</span></dt><dd><p>The type of solver used to approximate the depth.</p>
+</dd>
+<dt>NRandom<span class="classifier">int, default=1000</span></dt><dd><p>The total number of iterations to compute the depth. Some solvers are converging
+faster so they are run several time to achieve <code class="docutils literal notranslate"><span class="pre">NRandom</span></code> iterations.</p>
+</dd>
+<dt>n_refinements<span class="classifier">int, default = 10</span></dt><dd><p>Set the maximum of iteration for computing the depth of one point.
+For <code class="docutils literal notranslate"><span class="pre">solver='refinedrandom'</span></code> or <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>.</p>
+</dd>
+<dt>sphcap_shrink<span class="classifier">float, default = 0.5</span></dt><dd><p>It’s the shrinking of the spherical cap. For <code class="docutils literal notranslate"><span class="pre">solver='refinedrandom'</span></code> or <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>.</p>
+</dd>
+<dt>alpha_Dirichlet<span class="classifier">float, default = 1.25</span></dt><dd><p>It’s the parameter of the Dirichlet distribution. For <code class="docutils literal notranslate"><span class="pre">solver='randomsimplices'</span></code>.</p>
+</dd>
+<dt>cooling_factor<span class="classifier">float, default = 0.95</span></dt><dd><p>It’s the cooling factor. For <code class="docutils literal notranslate"><span class="pre">solver='simulatedannealing'</span></code>.</p>
+</dd>
+<dt>cap_size<span class="classifier">int | float, default = 1</span></dt><dd><p>It’s the size of the spherical cap. For <code class="docutils literal notranslate"><span class="pre">solver='simulatedannealing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>.</p>
+</dd>
+<dt>start<span class="classifier">str {‘mean’, ‘random’}, default = mean</span></dt><dd><p>For <code class="docutils literal notranslate"><span class="pre">solver='simulatedannealing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, it’s the method used to compute the first depth.</p>
+</dd>
+<dt>space<span class="classifier">str {‘sphere’, ‘euclidean’}, default = ‘sphere’</span></dt><dd><p>For <code class="docutils literal notranslate"><span class="pre">solver='coordinatedescent'</span></code> or <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, it’s the type of spacecin which the solver is running.</p>
+</dd>
+<dt>line_solver<span class="classifier">str {‘uniform’, ‘goldensection’}, default = goldensection</span></dt><dd><p>For <code class="docutils literal notranslate"><span class="pre">solver='coordinatedescent'</span></code>, it’s the line searh strategy used by this solver.</p>
+</dd>
+<dt>bound_gc<span class="classifier">bool, default = True</span></dt><dd><p>For <code class="docutils literal notranslate"><span class="pre">solver='neldermead'</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">True</span></code> if the search is limited to the closed hemisphere.</p>
+</dd>
+<dt>output_option<span class="classifier">str {“lowest_depth”,”final_depht_dir”,”all_depth”,”all_depth_directions}, default = final_depht_dir</span></dt><dd><p>Determines what will be computated alongside with the final depth
+|        If <code class="docutils literal notranslate"><span class="pre">output_option=lowest_depth</span></code>, only approximated depths are returned.
+|        If <code class="docutils literal notranslate"><span class="pre">output_option=final_depht_dir</span></code>, best directions to approximate depths are also returned.
+|        If <code class="docutils literal notranslate"><span class="pre">output_option=all_depth</span></code>, depths calculated at every iteration are also returned.
+|        If <code class="docutils literal notranslate"><span class="pre">output_option=all_depth_directions</span></code>, random directions used to project depths are also returned with indices of converging for the solver selected.</p>
+</dd>
+<dt>evaluate_dataset<span class="classifier">bool, default=False</span></dt><dd><p>Determines if dataset loaded will be evaluated.
+Automatically sets x to dataset</p>
+</dd>
+</dl>
+</dd>
+<dt>References</dt><dd><ul class="simple">
+<li><p>Dyckerhoff, R. and Mosler, K. (2011). Weighted-mean trimming of multivariate data. <em>Journal of Multivariate Analysis</em>, 102, 405–421.</p></li>
+<li><p>Dyckerhoff, R., Mozharovskyi, P., and Nagy, S. (2021). Approximate computation of projection depths. <em>Computational Statistics and Data Analysis</em>, 157, 107166.</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">depth.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">DepthEucl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mat1</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mat2</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mat2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">=</span><span class="n">DepthEucl</span><span class="p">()</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">geometrical</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="go">[0.090223   0.19577999 0.15769263 0.20123535 0.10375507 0.14635662</span>
+<span class="go"> 0.20611053 0.17846703 0.19801984 0.23230606]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cexpchullstar.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Continuous modified expected convex hull depth</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Halfspace.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Halfspace depth</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../sources/notions/Geometrical.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Pavlo Mozharovskyi, Rainer Dyckerhoff, Oleksii Pokotylo, Romain Valla, Leonardo Leone, Arturo Castellanos Salinas.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
