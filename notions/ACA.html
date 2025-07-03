@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Anomaly component analysis &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
+    <title>Abnormal component analysis &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
   
   
   
@@ -361,7 +361,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SimplicialVolume.html">Simplicial volume depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Spatial.html">Spatial depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Zonoid.html">Zonoid depth</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anomaly component analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Abnormal component analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change_dataset.html">Modify dataset</a></li>
 </ul>
 </details></li>
@@ -416,7 +416,7 @@
     
     <li class="breadcrumb-item"><a href="../DepthEucl.html" class="nav-link">Depth in Euclidean space (multivariate depth)</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Anomaly component analysis</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Abnormal component analysis</span></li>
   </ul>
 </nav>
 </div>
@@ -434,7 +434,7 @@
                 <article class="bd-article">
                   
   <section id="anomaly-component-analysis">
-<span id="aca"></span><h1>Anomaly component analysis<a class="headerlink" href="#anomaly-component-analysis" title="Link to this heading">#</a></h1>
+<span id="aca"></span><h1>Abnormal component analysis<a class="headerlink" href="#anomaly-component-analysis" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">ACA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'projection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.ACA"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
@@ -478,7 +478,7 @@ For <code class="docutils literal notranslate"><span class="pre">solver='refined
 <dt>Results</dt><dd><p>ACA directions for dimensional reduction</p>
 </dd>
 <dt>References</dt><dd><ul class="simple">
-<li><p>Valla, R., Mozharovskyi, P., &amp; d’Alché-Buc, F. (2023). Anomaly component analysis. arXiv preprint arXiv:2312.16139.</p></li>
+<li><p>Valla, R., Mozharovskyi, P., &amp; d’Alché-Buc, F. (2023). Abnormal component analysis. arXiv preprint arXiv:2312.16139.</p></li>
 </ul>
 </dd>
 <dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
