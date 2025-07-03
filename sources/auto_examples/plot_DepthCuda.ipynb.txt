@@ -4,7 +4,7 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "\n# Cuda application for halfspace, projection and asymmectric projection depth \n\nSample usage of halfspace depth computation.\nIt will plot samples and dataset based on halfspace depth values.\n"
+        "\n# Cuda application for halfspace, projection and asymmetric projection depth \n\nSample usage of halfspace, projection and asymmetric projection depth computation.\nIt will plot samples and dataset based on depth computation using Graphical processing units.\n"
       ]
     },
     {

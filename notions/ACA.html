@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Asymmetric projection depth &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
+    <title>Anomaly component analysis &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
   
   
   
@@ -54,12 +54,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notions/Aprojection';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notions/ACA';</script>
     <link rel="icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Beta-skeleton depth" href="BetaSkeleton.html" />
-    <link rel="prev" title="Depth in Euclidean space (multivariate depth)" href="../DepthEucl.html" />
+    <link rel="next" title="Modify dataset" href="change_dataset.html" />
+    <link rel="prev" title="Zonoid depth" href="Zonoid.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -346,7 +346,7 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../DepthEucl.html">Depth in Euclidean space (multivariate depth)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Asymmetric projection depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Aprojection.html">Asymmetric projection depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BetaSkeleton.html">Beta-skeleton depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Cexpchull.html">Continuous expected convex hull depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Cexpchullstar.html">Continuous modified expected convex hull depth</a></li>
@@ -361,7 +361,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SimplicialVolume.html">Simplicial volume depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Spatial.html">Spatial depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Zonoid.html">Zonoid depth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ACA.html">Anomaly component analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anomaly component analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change_dataset.html">Modify dataset</a></li>
 </ul>
 </details></li>
@@ -416,7 +416,7 @@
     
     <li class="breadcrumb-item"><a href="../DepthEucl.html" class="nav-link">Depth in Euclidean space (multivariate depth)</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Asymmetric projection depth</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Anomaly component analysis</span></li>
   </ul>
 </nav>
 </div>
@@ -433,19 +433,23 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="asymmetric-projection-depth">
-<span id="aprojection"></span><h1>Asymmetric projection depth<a class="headerlink" href="#asymmetric-projection-depth" title="Link to this heading">#</a></h1>
+  <section id="anomaly-component-analysis">
+<span id="aca"></span><h1>Anomaly component analysis<a class="headerlink" href="#anomaly-component-analysis" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">aprojection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'lowest_depth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'final_depht_dir'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'all_depth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'all_depth_directions'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'final_depht_dir'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CUDA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.aprojection"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Calculates approximately the asymmetric projection depth of points w.r.t. a multivariate data set.</p>
+<span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">ACA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'projection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_refinements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphcap_shrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_Dirichlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sphere'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'goldensection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound_gc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.ACA"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Computes the abnormal component analysis</p>
 <dl>
 <dt>Arguments</dt><dd><dl>
-<dt>x: array-like or None, default=None</dt><dd><p>Matrix of objects (numerical vector as one object) whose depth is to be calculated;
-each row contains a d-variate point. Should have the same dimension as
-data.</p>
+<dt>dim: int, default=2</dt><dd><p>Number of dimensions to keep in the reduction</p>
 </dd>
-<dt>solver<span class="classifier">str  {<code class="docutils literal notranslate"><span class="pre">'simplegrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedgrid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simplerandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'refinedrandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'coordinatedescent'</span></code>, <code class="docutils literal notranslate"><span class="pre">'randomsimplices'</span></code>, <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>, <code class="docutils literal notranslate"><span class="pre">'simulatedannealing'</span></code>}, default=”neldermead”</span></dt><dd><p>The type of solver used to approximate the depth.</p>
+<dt>sample_size: int, default=None</dt><dd><p>Size of the dataset (uniform sampling) to be used in the ACA calculation</p>
+</dd>
+<dt>sample: list[int], default=None</dt><dd><p>Indices for the dataset to be used in the computation</p>
+</dd>
+<dt>notion: str {<code class="docutils literal notranslate"><span class="pre">'projection'</span></code>, <code class="docutils literal notranslate"><span class="pre">'halfspace'</span></code>}, default=”projection”</dt><dd><p>Chosen notion for depth computation</p>
+</dd>
+<dt>solver<span class="classifier">str  {<code class="docutils literal notranslate"><span class="pre">'refinedrandom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'neldermead'</span></code>}, default=”neldermead”</span></dt><dd><p>The type of solver used to approximate the depth.</p>
 </dd>
 <dt>NRandom<span class="classifier">int, default=1000</span></dt><dd><p>The total number of iterations to compute the depth. Some solvers are converging
 faster so they are run several time to achieve <code class="docutils literal notranslate"><span class="pre">NRandom</span></code> iterations.</p>
@@ -469,33 +473,29 @@ For <code class="docutils literal notranslate"><span class="pre">solver='refined
 </dd>
 <dt>bound_gc<span class="classifier">bool, default = True</span></dt><dd><p>For <code class="docutils literal notranslate"><span class="pre">solver='neldermead'</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">True</span></code> if the search is limited to the closed hemisphere.</p>
 </dd>
-<dt>output_option<span class="classifier">str {“lowest_depth”,”final_depht_dir”,”all_depth”,”all_depth_directions}, default = final_depht_dir</span></dt><dd><p>Determines what will be computated alongside with the final depth
-|        If <code class="docutils literal notranslate"><span class="pre">output_option=lowest_depth</span></code>, only approximated depths are returned.
-|        If <code class="docutils literal notranslate"><span class="pre">output_option=final_depht_dir</span></code>, best directions to approximate depths are also returned.
-|        If <code class="docutils literal notranslate"><span class="pre">output_option=all_depth</span></code>, depths calculated at every iteration are also returned.
-|        If <code class="docutils literal notranslate"><span class="pre">output_option=all_depth_directions</span></code>, random directions used to project depths are also returned with indices of converging for the solver selected.</p>
-</dd>
-<dt>evaluate_dataset<span class="classifier">bool, default=False</span></dt><dd><p>Determines if dataset loaded will be evaluated.
-Automatically sets x to dataset</p>
-</dd>
 </dl>
 </dd>
+<dt>Results</dt><dd><p>ACA directions for dimensional reduction</p>
+</dd>
 <dt>References</dt><dd><ul class="simple">
-<li><p>Dyckerhoff, R. (2004). Data depths satisfying the projection property. <em>Allgemeines Statistisches Archiv</em>, 88, 163–190.</p></li>
-<li><p>Dyckerhoff, R., Mozharovskyi, P., and Nagy, S. (2021). Approximate computation of projection depths. <em>Computational Statistics and Data Analysis</em>, 157, 107166.</p></li>
+<li><p>Valla, R., Mozharovskyi, P., &amp; d’Alché-Buc, F. (2023). Anomaly component analysis. arXiv preprint arXiv:2312.16139.</p></li>
 </ul>
 </dd>
 <dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">depth.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">DepthEucl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mat1</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mat2</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mat2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat1</span><span class="p">,</span> <span class="mi">990</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">data1</span><span class="p">,</span><span class="n">data2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">DepthEucl</span><span class="p">()</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">aprojection</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="go">[0.090223   0.19577999 0.15769263 0.20123535 0.10375507 0.14635662</span>
-<span class="go"> 0.20611053 0.17846703 0.19801984 0.23230606]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">ACA</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="go">    array([[-0.13558675, -0.13558675],</span>
+<span class="go">            [ 2.65800844,  2.65800844],</span>
+<span class="go">            [-1.38230018, -1.38230018],</span>
+<span class="go">            [-0.11503065, -0.11503065],</span>
+<span class="go">            [ 0.55349281,  0.55349281]])</span>
 </pre></div>
 </div>
 </dd>
@@ -515,20 +515,20 @@ Automatically sets x to dataset</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../DepthEucl.html"
+       href="Zonoid.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Depth in Euclidean space (multivariate depth)</p>
+        <p class="prev-next-title">Zonoid depth</p>
       </div>
     </a>
     <a class="right-next"
-       href="BetaSkeleton.html"
+       href="change_dataset.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Beta-skeleton depth</p>
+        <p class="prev-next-title">Modify dataset</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -547,7 +547,7 @@ Automatically sets x to dataset</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../sources/notions/Aprojection.rst.txt"
+      <li><a href="../sources/notions/ACA.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

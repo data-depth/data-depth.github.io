@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Examples using data-depth library &#8212; package &#34;data-depth&#34; 1.1.0 documentation</title>
+    <title>Examples using data-depth library &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="static/documentation_options.js?v=fc837d61"></script>
+    <script src="static/documentation_options.js?v=6f037312"></script>
     <script src="static/doctools.js?v=9bcbadda"></script>
     <script src="static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,7 +60,7 @@
     <link rel="icon" href="static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Aprojection depth" href="auto_examples/plot_aprojDepth.html" />
+    <link rel="next" title="Asymmetric projection depth" href="auto_examples/plot_aprojDepth.html" />
     <link rel="prev" title="depth_plot2d" href="plot/depth_plot2d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -130,8 +130,8 @@
       
     
     
-    <img src="static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.0 documentation - Home"/>
-    <img src="static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.0 documentation - Home"/>
+    <img src="static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2 documentation - Home"/>
+    <img src="static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2 documentation - Home"/>
   
   
 </a></div>
@@ -347,7 +347,7 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_aprojDepth.html">Aprojection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_aprojDepth.html">Asymmetric projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_betaSkelDepth.html">Beta skeleton depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_CexpchullDepth.html">Continuous explected convex hull depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_CexpchullStarDepth.html">Continuous modified explected convex hull depth</a></li>
@@ -362,9 +362,10 @@
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_simplicialVolDepth.html">Simplicial Volume depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_spatialDepth.html">Spatial depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_zonoidDepth.html">Zonoid depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_DepthCuda.html">Cuda application for halfspace, projection and asymmectric projection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_DepthCuda.html">Cuda application for halfspace, projection and asymmetric projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_contours.html">Depth contour visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_multiDist.html">Data depth computation for multiple distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_ACA.html">Abnormal component analysis</a></li>
 </ul>
 </div>
 </nav></div>
@@ -426,7 +427,7 @@
 <span id="examples"></span><h1>Examples using data-depth library<a class="headerlink" href="#examples-using-data-depth-library" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_aprojDepth.html">Aprojection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_aprojDepth.html">Asymmetric projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_betaSkelDepth.html">Beta skeleton depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_CexpchullDepth.html">Continuous explected convex hull depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_CexpchullStarDepth.html">Continuous modified explected convex hull depth</a></li>
@@ -441,9 +442,10 @@
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_simplicialVolDepth.html">Simplicial Volume depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_spatialDepth.html">Spatial depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_zonoidDepth.html">Zonoid depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_DepthCuda.html">Cuda application for halfspace, projection and asymmectric projection depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_DepthCuda.html">Cuda application for halfspace, projection and asymmetric projection depth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_contours.html">Depth contour visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_multiDist.html">Data depth computation for multiple distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/plot_ACA.html">Abnormal component analysis</a></li>
 </ul>
 </div>
 </section>
@@ -472,7 +474,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aprojection depth</p>
+        <p class="prev-next-title">Asymmetric projection depth</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

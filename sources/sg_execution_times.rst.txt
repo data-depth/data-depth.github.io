@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:58.917** total execution time for 18 files **from all galleries**:
+**02:05.343** total execution time for 19 files **from all galleries**:
 
 .. container::
 
@@ -33,56 +33,59 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_plot_CexpchullDepth.py` (``../examples/plot_CexpchullDepth.py``)
-     - 01:26.428
+     - 01:27.242
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_CexpchullStarDepth.py` (``../examples/plot_CexpchullStarDepth.py``)
-     - 00:09.625
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_geometricalDepth.py` (``../examples/plot_geometricalDepth.py``)
-     - 00:05.057
+     - 00:09.610
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_DepthCuda.py` (``../examples/plot_DepthCuda.py``)
-     - 00:04.319
+     - 00:06.667
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_geometricalDepth.py` (``../examples/plot_geometricalDepth.py``)
+     - 00:05.137
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_projectionDepth.py` (``../examples/plot_projectionDepth.py``)
-     - 00:04.161
+     - 00:04.158
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_ACA.py` (``../examples/plot_ACA.py``)
+     - 00:03.232
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_aprojDepth.py` (``../examples/plot_aprojDepth.py``)
-     - 00:02.747
+     - 00:02.825
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_simplicialVolDepth.py` (``../examples/plot_simplicialVolDepth.py``)
-     - 00:02.494
+     - 00:02.447
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_contours.py` (``../examples/plot_contours.py``)
-     - 00:02.040
+     - 00:02.030
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_multiDist.py` (``../examples/plot_multiDist.py``)
-     - 00:00.554
+     - 00:00.561
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_betaSkelDepth.py` (``../examples/plot_betaSkelDepth.py``)
-     - 00:00.376
+     - 00:00.368
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_zonoidDepth.py` (``../examples/plot_zonoidDepth.py``)
-     - 00:00.352
+     - 00:00.342
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_qhpeelingDepth.py` (``../examples/plot_qhpeelingDepth.py``)
-     - 00:00.152
+     - 00:00.157
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_spatialDepth.py` (``../examples/plot_spatialDepth.py``)
-     - 00:00.126
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_L2Depth.py` (``../examples/plot_L2Depth.py``)
-     - 00:00.109
+     - 00:00.125
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_halfDepth.py` (``../examples/plot_halfDepth.py``)
-     - 00:00.109
+     - 00:00.102
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_simplicialDepth.py` (``../examples/plot_simplicialDepth.py``)
-     - 00:00.103
+     - 00:00.096
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_mahDepth.py` (``../examples/plot_mahDepth.py``)
-     - 00:00.083
+   * - :ref:`sphx_glr_auto_examples_plot_L2Depth.py` (``../examples/plot_L2Depth.py``)
+     - 00:00.085
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_potentialDepth.py` (``../examples/plot_potentialDepth.py``)
-     - 00:00.083
+     - 00:00.079
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_mahDepth.py` (``../examples/plot_mahDepth.py``)
+     - 00:00.079
      - 0.0

@@ -18,6 +18,23 @@ This folder contains examples of how depth library can be used, mainly focusing 
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of abnormal component analysis for dimension reduction.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_ACA_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_ACA.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Abnormal component analysis</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of L2 depth computation. It will plot samples and dataset based on L2 depth values.">
 
 .. only:: html
@@ -222,7 +239,7 @@ This folder contains examples of how depth library can be used, mainly focusing 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of Aprojection depth computation. It will plot samples and dataset based on mahalanobis depth values.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of asymmetric projection depth computation. It will plot samples and dataset based on mahalanobis depth values.">
 
 .. only:: html
 
@@ -233,7 +250,7 @@ This folder contains examples of how depth library can be used, mainly focusing 
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Aprojection depth</div>
+      <div class="sphx-glr-thumbnail-title">Asymmetric projection depth</div>
     </div>
 
 
@@ -273,7 +290,7 @@ This folder contains examples of how depth library can be used, mainly focusing 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of halfspace depth computation. It will plot samples and dataset based on halfspace depth values.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Sample usage of halfspace, projection and asymmetric projection depth computation. It will plot samples and dataset based on depth computation using Graphical processing units.">
 
 .. only:: html
 
@@ -284,7 +301,7 @@ This folder contains examples of how depth library can be used, mainly focusing 
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Cuda application for halfspace, projection and asymmectric projection depth</div>
+      <div class="sphx-glr-thumbnail-title">Cuda application for halfspace, projection and asymmetric projection depth</div>
     </div>
 
 
@@ -332,6 +349,7 @@ This folder contains examples of how depth library can be used, mainly focusing 
 .. toctree::
    :hidden:
 
+   /auto_examples/plot_ACA
    /auto_examples/plot_L2Depth
    /auto_examples/plot_spatialDepth
    /auto_examples/plot_potentialDepth

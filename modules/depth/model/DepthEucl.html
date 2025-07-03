@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>depth.model.DepthEucl &#8212; package &#34;data-depth&#34; 1.1.0 documentation</title>
+    <title>depth.model.DepthEucl &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=fc837d61"></script>
+    <script src="../../../_static/documentation_options.js?v=6f037312"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -125,8 +125,8 @@
       
     
     
-    <img src="../../../_static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.0 documentation - Home"/>
-    <img src="../../../_static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.0 documentation - Home"/>
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2 documentation - Home"/>
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2 documentation - Home"/>
   
   
 </a></div>
@@ -396,7 +396,6 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">docHelp</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">multivariate</span> <span class="k">as</span> <span class="n">mtv</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">float32</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">try</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CUDA_HOME&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CUDA_PATH&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Force add cuda path</span>
@@ -423,7 +422,7 @@
 <span class="sd">    exact : bool, delfaut=True</span>
 <span class="sd">        Whether the depth computation is exact.</span>
 <span class="sd">    </span>
-<span class="sd">    mah_estimate : str, {&quot;moment&quot;, &quot;mcd&quot;}, default=&quot;moment&quot;</span>
+<span class="sd">    mah_estimate : str, {&quot;none&quot;, &quot;moment&quot;, &quot;mcd&quot;}, default=&quot;moment&quot;</span>
 <span class="sd">        Specifying which estimates to use when calculating the depth</span>
 <span class="sd">    </span>
 <span class="sd">    mah_parMcd : float, default=0.75</span>
@@ -552,7 +551,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">data</span>
             <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span> 
-            <span class="k">if</span> <span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">or</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">or</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
                     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;mps&quot;</span><span class="p">)</span>
                 <span class="k">elif</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
@@ -570,8 +569,8 @@
 
 <div class="viewcode-block" id="DepthEucl.mahalanobis">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.mahalanobis">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span>
-                    <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span><span class="n">solver</span><span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span>
+                    <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span><span class="n">solver</span><span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
                     <span class="n">n_refinements</span><span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
                     <span class="n">alpha_Dirichlet</span><span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> 
                     <span class="n">cap_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span> 
@@ -1471,10 +1470,67 @@
             <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zonoidDepthDS</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">zonoidDirDS</span></div>
 
 
+<div class="viewcode-block" id="DepthEucl.ACA">
+<a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.ACA">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ACA</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dim</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">sample_size</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">sample</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">notion</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;projection&quot;</span><span class="p">,</span>
+            <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span>
+            <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span>
+            <span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+            <span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+            <span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span>
+            <span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span>
+            <span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the abnormal component analysis</span>
+<span class="sd">            </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dim: int, default=2</span>
+<span class="sd">            Number of dimensions to keep in the reduction</span>
+<span class="sd">        </span>
+<span class="sd">        sample_size: int, default=None</span>
+<span class="sd">            Size of the dataset (uniform sampling) to be used in the ACA calculation</span>
+
+<span class="sd">        sample: list[int], default=None</span>
+<span class="sd">            Indices for the dataset to be used in the computation </span>
+<span class="sd">        </span>
+<span class="sd">        notion: str, default=&quot;projection&quot;</span>
+<span class="sd">            Chosen notion for depth computation</span>
+
+<span class="sd">        Results</span>
+<span class="sd">        --------</span>
+<span class="sd">            ACA directions for dimensional reduction</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ACA_tab</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">ACA</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+                        <span class="n">sample_size</span><span class="o">=</span><span class="n">sample_size</span><span class="p">,</span>
+                        <span class="n">sample</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                        <span class="n">notion</span><span class="o">=</span><span class="n">notion</span><span class="p">,</span>
+                        <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+                        <span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span>
+                        <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span>
+                        <span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
+                        <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span>
+                        <span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span>
+                        <span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span>
+                        <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
+                        <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span>
+                        <span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span>
+                        <span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ACA_tab</span></div>
+
+
     <span class="c1">## Det and MCD </span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_calcDet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">mat</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the determinant of a matrix (?)</span>
+<span class="sd">        Computes the determinant of a matrix </span>
 
 <span class="sd">        Parametres </span>
 <span class="sd">        -----------</span>
@@ -1537,7 +1593,7 @@
 <span class="sd">            Modify loaded dataset.</span>
 
 <span class="sd">        Arguments</span>
-<span class="sd">        ------------</span>
+<span class="sd">        ---------</span>
 <span class="sd">            newDataset:np.ndarray</span>
 <span class="sd">                New dataset</span>
 <span class="sd">            </span>
@@ -1551,7 +1607,7 @@
 <span class="sd">                Boolean to determine if current dataset is kept or not.</span>
 <span class="sd">                If True, newDataset is added in the end of the old one.</span>
 <span class="sd">        Returns </span>
-<span class="sd">        ------------</span>
+<span class="sd">        -------</span>
 <span class="sd">            None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">keepOld</span><span class="p">:</span> <span class="c1"># keep old dataset</span>
@@ -1650,8 +1706,8 @@
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;exact must be a boolean or [0,1], got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;mah_estimate&quot;</span><span class="p">:</span>
                 <span class="k">assert</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;mah_estimate must be a string, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> 
-                <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">}:</span> 
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only mah_estimate possibilities are </span><span class="se">{{</span><span class="s2">&#39;moment&#39;, &#39;mcd&#39;</span><span class="se">}}</span><span class="s2">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">}:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only mah_estimate possibilities are </span><span class="se">{{</span><span class="s2">&#39;none&#39;, &#39;moment&#39;, &#39;mcd&#39;</span><span class="se">}}</span><span class="s2">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;NRandom&quot;</span><span class="p">,</span><span class="s2">&quot;n_refinements&quot;</span><span class="p">]:</span>
                 <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> must be an integer, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mah_parMcd&quot;</span><span class="p">,</span><span class="s2">&quot;sphcap_shrink&quot;</span><span class="p">,</span><span class="s2">&quot;alpha_Dirichlet&quot;</span><span class="p">,</span><span class="s2">&quot;cooling_factor&quot;</span><span class="p">]:</span> 
@@ -1689,6 +1745,7 @@
 <span class="n">DepthEucl</span><span class="o">.</span><span class="n">simplicialVolume</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="n">docHelp</span><span class="o">.</span><span class="n">simplicialVolume__doc__</span>
 <span class="n">DepthEucl</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="n">docHelp</span><span class="o">.</span><span class="n">spatial__doc__</span>
 <span class="n">DepthEucl</span><span class="o">.</span><span class="n">zonoid</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="n">docHelp</span><span class="o">.</span><span class="n">zonoid__doc__</span>
+<span class="n">DepthEucl</span><span class="o">.</span><span class="n">ACA</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="n">docHelp</span><span class="o">.</span><span class="n">ACA__doc__</span>
 <span class="n">DepthEucl</span><span class="o">.</span><span class="n">change_dataset</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">=</span><span class="n">docHelp</span><span class="o">.</span><span class="n">change_dataset__doc__</span>
     <span class="c1"># depth_mesh.__doc__=mtv.depth_mesh.__doc__</span>
     <span class="c1"># depth_plot2d.__doc__=mtv.depth_plot2d.__doc__</span>

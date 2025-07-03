@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Zonoid depth &#8212; package &#34;data-depth&#34; 1.1.0 documentation</title>
+    <title>Zonoid depth &#8212; package &#34;data-depth&#34; 1.1.2 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../static/documentation_options.js?v=fc837d61"></script>
+    <script src="../static/documentation_options.js?v=6f037312"></script>
     <script src="../static/doctools.js?v=9bcbadda"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../static/clipboard.min.js?v=a7894cd8"></script>
@@ -58,7 +58,7 @@
     <link rel="icon" href="../static/depth-logo.jpg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modify dataset" href="change_dataset.html" />
+    <link rel="next" title="Anomaly component analysis" href="ACA.html" />
     <link rel="prev" title="Spatial depth" href="Spatial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -128,8 +128,8 @@
       
     
     
-    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.0 documentation - Home"/>
-    <img src="../static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.0 documentation - Home"/>
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2 documentation - Home"/>
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2 documentation - Home"/>
   
   
 </a></div>
@@ -361,6 +361,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SimplicialVolume.html">Simplicial volume depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Spatial.html">Spatial depth</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Zonoid depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ACA.html">Anomaly component analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change_dataset.html">Modify dataset</a></li>
 </ul>
 </details></li>
@@ -494,7 +495,7 @@ Automatically sets x to dataset</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">=</span><span class="n">DepthEucl</span><span class="p">()</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">zonoid</span><span class="p">(</span><span class="n">x</span><span class="p">,)</span>
 <span class="go">[0.         0.00769552 0.03087017 0.         0.30945453 0.0142515</span>
-<span class="go">    0.         0.01970896 0.02169483 0.        ]</span>
+<span class="go"> 0.         0.01970896 0.02169483 0.        ]</span>
 </pre></div>
 </div>
 </dd>
@@ -523,11 +524,11 @@ Automatically sets x to dataset</p>
       </div>
     </a>
     <a class="right-next"
-       href="change_dataset.html"
+       href="ACA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Modify dataset</p>
+        <p class="prev-next-title">Anomaly component analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

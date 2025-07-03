@@ -4,7 +4,7 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "\n# Aprojection depth \n\nSample usage of Aprojection depth computation.\nIt will plot samples and dataset based on mahalanobis depth values.\n"
+        "\n# Asymmetric projection depth \n\nSample usage of asymmetric projection depth computation.\nIt will plot samples and dataset based on mahalanobis depth values.\n"
       ]
     },
     {
