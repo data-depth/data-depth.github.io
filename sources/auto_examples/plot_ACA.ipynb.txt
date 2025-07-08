@@ -26,7 +26,7 @@
       },
       "outputs": [],
       "source": [
-        "## Creating dataset and samples\nnp.random.seed(2801)\nmat1=[[1, 0, 0, 0, 0],[0, 1, 0, 0, 0],[0, 0, 1, 0, 0],[0, 0, 0, 1, 0],[0, 0, 0, 0, 1]]\nmat2=[[0.25, 0, 0, 0, 0],[0, 0.25, 0, 0, 0],[0, 0, 0.25, 0, 0],[0, 0, 0, 0.25, 0],[0, 0, 0, 0, 0.25]]\ndata1 = np.random.multivariate_normal([0,0,0,0,0], mat1, 990)\ndata2 = np.random.multivariate_normal([7.5,7.5,0,0,0], mat2, 10)\ndataset=np.concatenate((data1,data2),axis=0)"
+        "## Creating dataset and samples\nnp.random.seed(2801)\nmat1=[[1, 0, 0, 0, 0],[0, 1, 0, 0, 0],[0, 0, 1, 0, 0],[0, 0, 0, 1, 0],[0, 0, 0, 0, 1]]\nmat2=[[0.25, 0, 0, 0, 0],[0, 0.25, 0, 0, 0],[0, 0, 0.25, 0, 0],[0, 0, 0, 0.25, 0],[0, 0, 0, 0, 0.25]]\nmat3=[[0.5, 0, 0, 0, 0],[0, 0.5, 0, 0, 0],[0, 0, 0.5, 0, 0],[0, 0, 0, 0.5, 0],[0, 0, 0, 0, 0.5]]\ndata1 = np.random.multivariate_normal([0,0,0,0,0], mat1, 980)\ndata2 = np.random.multivariate_normal([7.5,7.5,0,0,0], mat2, 10)\ndata3 = np.random.multivariate_normal([0,0,0,5,5], mat3, 10)\ndataset=np.concatenate((data1,data2,data3),axis=0)"
       ]
     },
     {
@@ -44,7 +44,7 @@
       },
       "outputs": [],
       "source": [
-        "model=DepthEucl().load_dataset(dataset)\nbaseACA=model.ACA(dim=2, sample_size=900) # evaluate the dataset itself"
+        "model=DepthEucl().load_dataset(dataset)\nbaseACA=model.ACA(dim=2,) # evaluate the dataset itself"
       ]
     },
     {
@@ -55,7 +55,7 @@
       },
       "outputs": [],
       "source": [
-        "datasetACA=np.dot(dataset,baseACA)\nfig=plt.figure()\nplt.scatter(datasetACA[:,0],datasetACA[:,1], c=\"blue\",label=\"Dataset\")\nplt.xlabel(\"First component ACA\")\nplt.ylabel(\"Second component ACA\")\nplt.title(\"Dataset visualization using abnormal component analysis\")\nplt.legend()\nplt.show()"
+        "datasetACA=np.dot(dataset,baseACA)\nfig=plt.figure()\nplt.scatter(datasetACA[:,0],datasetACA[:,1], c=\"blue\",label=\"Dataset\")\nplt.xlabel(\"First abnormal component (AC1)\")\nplt.ylabel(\"Second abnormal component (AC2)\")\nplt.title(\"Dataset visualization using abnormal component analysis\")\nplt.legend()\nplt.show()"
       ]
     }
   ],
