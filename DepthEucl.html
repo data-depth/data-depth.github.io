@@ -776,23 +776,21 @@ Automatically sets x to dataset</p>
 <span class="sig-name descname"><span class="pre">betaSkeleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Lp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lp_p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_estimate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'moment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_parMcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/depth/model/DepthEucl.html#DepthEucl.betaSkeleton"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Calculates the beta-skeleton depth of points w.r.t. a multivariate data set.</p>
 <dl>
-<dt>Arguments</dt><dd><dl>
+<dt>Arguments</dt><dd><dl class="simple">
 <dt>x<span class="classifier">{array-like} of shape (n_samples,d).</span></dt><dd><p>Matrix of objects (numerical vector as one object) whose depth is to be calculated.
 Each row contains a d-variate point and should have the same dimension as data.</p>
-<p>beta : int, default=2
-The parameter defining the positionning of the balls’ centers, see <a href="#id1"><span class="problematic" id="id2">`Yang and Modarres (2017)`_</span></a> for details.
+</dd>
+<dt>beta<span class="classifier">int, default=2</span></dt><dd><p>The parameter defining the positionning of the balls’ centers, see Yang and Modarres (2017) for details.
 By default (together with other arguments) equals
 <code class="docutils literal notranslate"><span class="pre">2</span></code>, which corresponds to the lens depth, see Liu and Modarres (2011).</p>
-<p>distance : str, default=’Lp’
-A character string defining the distance to be used for determining inclusion
+</dd>
+<dt>distance<span class="classifier">str, default=’Lp’</span></dt><dd><p>A character string defining the distance to be used for determining inclusion
 of a point into the lens (influence region), see Yang and Modarres (2017) for
 details. Possibilities are <code class="docutils literal notranslate"><span class="pre">'Lp'</span></code> for the Lp-metric (default) or <code class="docutils literal notranslate"><span class="pre">'Mahalanobis'</span></code> for
 the Mahalanobis distance adjustment.</p>
-<dl class="simple">
+</dd>
 <dt>Lp_p<span class="classifier">int, default=2</span></dt><dd><p>A non-negative number defining the distance’s power equal <code class="docutils literal notranslate"><span class="pre">2</span></code> by default (Euclidean distance)
 is used only when <code class="docutils literal notranslate"><span class="pre">distance='Lp'</span></code>.</p>
-</dd>
-</dl>
 </dd>
 <dt>mah_estimate<span class="classifier">str, {“moment”, “mcd”}, default=”moment”</span></dt><dd><p>A character string specifying which estimates to use when calculating sample
 covariance matrix; can be <code class="docutils literal notranslate"><span class="pre">'none'</span></code>, <code class="docutils literal notranslate"><span class="pre">'moment'</span></code> or <code class="docutils literal notranslate"><span class="pre">'MCD'</span></code>, determining whether
