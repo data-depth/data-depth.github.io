@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Spatial depth &#8212; package &#34;data-depth&#34; 1.1.2.1 documentation</title>
+    <title>Spatial depth &#8212; package &#34;data-depth&#34; 1.1.2.6 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../static/documentation_options.js?v=901a926d"></script>
+    <script src="../static/documentation_options.js?v=5b9302a0"></script>
     <script src="../static/doctools.js?v=9bcbadda"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../static/clipboard.min.js?v=a7894cd8"></script>
@@ -128,8 +128,8 @@
       
     
     
-    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2.1 documentation - Home"/>
-    <img src="../static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2.1 documentation - Home"/>
+    <img src="../static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2.6 documentation - Home"/>
+    <img src="../static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2.6 documentation - Home"/>
   
   
 </a></div>
@@ -437,7 +437,7 @@
 <span id="spatial"></span><h1>Spatial depth<a class="headerlink" href="#spatial-depth" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">spatial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_estimate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'moment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_parMcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.spatial"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-prename descclassname"><span class="pre">DepthEucl.</span></span><span class="sig-name descname"><span class="pre">spatial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_estimate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'moment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mah_parMcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../modules/depth/model/DepthEucl.html#DepthEucl.spatial"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Calculates the spatial depth of points w.r.t. a multivariate data set.</p>
 <dl>
 <dt>Arguments</dt><dd><dl class="simple">
