@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>depth.model.DepthEucl &#8212; package &#34;data-depth&#34; 1.1.2.6 documentation</title>
+    <title>depth.model.DepthEucl &#8212; package &#34;data-depth&#34; 1.2.1.1 documentation</title>
   
   
   
@@ -44,9 +44,9 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=5b9302a0"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/documentation_options.js?v=de840b0d"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=4ea706d9"></script>
     <script src="../../../_static/thebelab-helper.js"></script>
@@ -125,8 +125,8 @@
       
     
     
-    <img src="../../../_static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.1.2.6 documentation - Home"/>
-    <img src="../../../_static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.1.2.6 documentation - Home"/>
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -396,7 +396,8 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">docHelp</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">multivariate</span> <span class="k">as</span> <span class="n">mtv</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="k">try</span><span class="p">:</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="k">except</span><span class="p">:</span><span class="n">torch</span><span class="o">=</span><span class="kc">None</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">try</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CUDA_HOME&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CUDA_PATH&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Force add cuda path</span>
 <span class="k">except</span><span class="p">:</span><span class="k">pass</span>
@@ -405,7 +406,7 @@
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DepthEucl</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Statistical data depth.</span>
+<span class="sd">    Statistical Data-Depth.</span>
 
 <span class="sd">    Return the depth of each sample w.r.t. a dataset, D(x,data), using a chosen depth notion.</span>
 <span class="sd">    </span>
@@ -462,7 +463,7 @@
 <span class="sd">    bound_gc : bool, default = True</span>
 <span class="sd">        For ``solver`` = ``neldermead``, it&#39;s ``True`` if the search is limited to the closed hemispher</span>
 <span class="sd">    </span>
-<span class="sd">    output_option : str {&quot;lowest_depth&quot;,&quot;final_depht_dir&quot;,&quot;all_depth&quot;,&quot;all_depth_directions}, default = final_depht_dir</span>
+<span class="sd">    output_option : str {&quot;lowest_depth&quot;,&quot;final_depth_dir&quot;,&quot;all_depth&quot;,&quot;all_depth_directions}, default = final_depth_dir</span>
 <span class="sd">        Determines what will be computated alongside with the final depth</span>
 <span class="sd">    </span>
 <span class="sd">    evaluate_dataset: bool, default=False,</span>
@@ -499,13 +500,13 @@
 <span class="sd">        Initialize depthModel instance for statistical depth computation.        </span>
 <span class="sd">        &quot;&quot;&quot;</span>  
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">approxOption</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">approxOption</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_seed</span><span class="p">()</span> <span class="c1"># set initial seed  </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_selfRef</span><span class="p">()</span> <span class="c1"># create self. referecnces for storing depth and directions</span>
 
 <div class="viewcode-block" id="DepthEucl.load_dataset">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.load_dataset">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">distribution</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">distribution</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the dataset X for reference calculations. Depth is computed with respect to this dataset.</span>
 
@@ -525,7 +526,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        ---------</span>
-<span class="sd">        loaded dataset</span>
+<span class="sd">        self : DepthEucl model object.</span>
+<span class="sd">            Returns the instance itself.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You must load a dataset&quot;</span><span class="p">)</span>
@@ -547,36 +549,39 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">y</span> <span class="c1"># define y</span>
         <span class="k">else</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="kc">None</span>
 
-        <span class="k">if</span> <span class="n">CUDA</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">data</span>
-            <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">torch</span><span class="p">)</span><span class="o">!=</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="o">==</span><span class="kc">True</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">torch</span><span class="p">)</span><span class="o">!=</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span> 
             <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">or</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-                    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;mps&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;mps&quot;</span><span class="p">)</span>
                 <span class="k">elif</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-                    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">data</span>
                 <span class="c1"># Tensor is transposed to facilitate projection and depth  computation</span>
             <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="n">data</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CUDA is set to True, but cuda is not available, CUDA is automatically set to False&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CUDA is set to True, but cuda is not available&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
 <div class="viewcode-block" id="DepthEucl.mahalanobis">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.mahalanobis">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="s2">&quot;mcd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span>
                     <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span><span class="n">solver</span><span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
                     <span class="n">n_refinements</span><span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
                     <span class="n">alpha_Dirichlet</span><span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> 
                     <span class="n">cap_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span> 
                     <span class="n">line_solver</span><span class="o">=</span><span class="s2">&quot;goldensection&quot;</span><span class="p">,</span> <span class="n">bound_gc</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
-                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mahalanobis depth</span>
 
@@ -584,10 +589,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
-<span class="sd">        </span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Mahalanobis depth : {array-like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Mahalanobis Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Mahalanobis Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Mahalanobis Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Mahalanobis Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -656,12 +693,12 @@
 
 <div class="viewcode-block" id="DepthEucl.aprojection">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.aprojection">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">aprojection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aprojection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
                     <span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span> 
                     <span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span><span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span> 
                     <span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span> <span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                                           <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute asymmetric projection depth</span>
@@ -670,10 +707,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
-<span class="sd">        </span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Asymmetrical projection depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -697,12 +766,12 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">allDirections</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">NRandom</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
         <span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">CUDA</span><span class="p">:</span><span class="n">DAP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">aprojection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+            <span class="k">if</span> <span class="n">CUDA</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="p">:</span><span class="n">DAP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">aprojection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
                                 <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span> <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span> 
-                                <span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">)</span> <span class="c1">#compute depth value        </span>
+                                <span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="c1">#compute depth value        </span>
             <span class="k">else</span><span class="p">:</span><span class="n">DAP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">aprojection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
                                 <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span> <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span> 
-                                <span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">)</span> <span class="c1">#compute depth value</span>
+                                <span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="c1">#compute depth value</span>
             <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">aprojectionDepth</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">=</span><span class="n">DAP</span> <span class="c1"># assign val option 1</span>
                 <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">aprojectionDepth</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">aprojectionDir</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">=</span><span class="n">DAP</span> <span class="c1"># assign value option 2</span>
@@ -735,7 +804,7 @@
     
 <div class="viewcode-block" id="DepthEucl.betaSkeleton">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.betaSkeleton">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">betaSkeleton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Lp&quot;</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">betaSkeleton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Lp&quot;</span><span class="p">,</span> 
                      <span class="n">Lp_p</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the beta-skeleton depth.</span>
@@ -747,7 +816,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Beta-skeleton depth : {array like}</span>
+<span class="sd">        Beta-skeleton depth : array_like</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -771,13 +841,13 @@
 
 <div class="viewcode-block" id="DepthEucl.cexpchull">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.cexpchull">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">cexpchull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span><span class="n">NRandom</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cexpchull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span><span class="n">NRandom</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
                   <span class="n">n_refinements</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
                   <span class="n">alpha_Dirichlet</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span><span class="n">cooling_factor</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-                  <span class="n">cap_size</span><span class="p">:</span><span class="nb">int</span><span class="o">|</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">start</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="n">space</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span>
+                  <span class="n">cap_size</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">start</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="n">space</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span>
                   <span class="n">line_solver</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span><span class="n">bound_gc</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                  <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                  <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute approximately the continuous explected convex hull depth of all samples w.r.t. the dataset.</span>
 
@@ -788,7 +858,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Continuous explected convex hull depth : {array like}</span>
+<span class="sd">        Continuous explected convex hull depth : array_like</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -851,12 +922,12 @@
         
 <div class="viewcode-block" id="DepthEucl.cexpchullstar">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.cexpchullstar">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">cexpchullstar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">cexpchullstar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> 
         <span class="n">option</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> 
         <span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span> <span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span> <span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates approximately the continuous modified explected convex hull depth</span>
 <span class="sd">                </span>
@@ -864,10 +935,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
 
-<span class="sd">        Results</span>
+<span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Continuous modified explected convex hull depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Continuous Modified Explected Convex Hull Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Continuous Modified Explected Convex Hull Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Continuous Modified Explected Convex Hull Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Continuous Modified Explected Convex Hull Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -923,11 +1026,11 @@
         
 <div class="viewcode-block" id="DepthEucl.geometrical">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.geometrical">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">geometrical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">geometrical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
                     <span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> 
                     <span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span> <span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span> <span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute geometrical depth</span>
 <span class="sd">                </span>
@@ -935,10 +1038,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
 
-<span class="sd">        Results</span>
+<span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Geometrical depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Geometrical Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Geometrical Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Geometrical Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Geometrical Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -996,11 +1131,11 @@
 
 <div class="viewcode-block" id="DepthEucl.halfspace">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.halfspace">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">halfspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;recursive&quot;</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">halfspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;recursive&quot;</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span>
                   <span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span><span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span><span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span><span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
                   <span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span><span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span><span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                  <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                  <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute Halfspace depth</span>
 <span class="sd">                </span>
@@ -1008,10 +1143,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
 
-<span class="sd">        Results</span>
+<span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Halfspace (Tukey) depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Halfspace (Tukey) Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Halfspace (Tukey) Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Halfspace (Tukey) Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Halfspace (Tukey) Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1037,10 +1204,10 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">allDirections</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">NRandom</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
         <span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">CUDA</span><span class="p">:</span><span class="n">DH</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">halfspace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">exact</span><span class="o">=</span><span class="n">exact</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+            <span class="k">if</span> <span class="n">CUDA</span><span class="o">==</span><span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span><span class="n">DH</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">halfspace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">exact</span><span class="o">=</span><span class="n">exact</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
                 <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span><span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
                 <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span><span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span><span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
-                <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">,</span>
+                <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="k">elif</span> <span class="n">CUDA</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span><span class="n">DH</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">halfspace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">exact</span><span class="o">=</span><span class="n">exact</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
                 <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span><span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
@@ -1078,7 +1245,7 @@
     
 <div class="viewcode-block" id="DepthEucl.L2">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.L2">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">L2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;moment&#39;</span><span class="p">,</span> <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">L2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mah_estimate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;moment&#39;</span><span class="p">,</span> <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute L2 depth </span>
 <span class="sd">                </span>
@@ -1089,7 +1256,7 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        L2 depth : {array like}</span>
+<span class="sd">        L2 depth : array_like</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1111,7 +1278,7 @@
 
 <div class="viewcode-block" id="DepthEucl.potential">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.potential">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">potential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pretransform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;1Mom&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EDKernel&quot;</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">potential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pretransform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;1Mom&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EDKernel&quot;</span><span class="p">,</span> 
                   <span class="n">mah_parMcd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">kernel_bandwidth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute potential depth</span>
@@ -1137,7 +1304,7 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Potential depth : {array like}</span>
+<span class="sd">        Potential depth : array_like</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1162,11 +1329,11 @@
     
 <div class="viewcode-block" id="DepthEucl.projection">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.projection">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span><span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span><span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;neldermead&quot;</span><span class="p">,</span><span class="n">NRandom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span><span class="n">n_refinements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
                   <span class="n">sphcap_shrink</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span><span class="n">alpha_Dirichlet</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span><span class="n">cooling_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
                   <span class="n">cap_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="n">space</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span><span class="p">,</span><span class="n">line_solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span><span class="p">,</span><span class="n">bound_gc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                  <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                  <span class="n">CUDA</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute projection depth</span>
 <span class="sd">                </span>
@@ -1174,10 +1341,41 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
 
-<span class="sd">        Results</span>
+<span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Projection depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Projection Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1203,10 +1401,10 @@
             <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">allDirections</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">NRandom</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
         <span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distRef</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">CUDA</span><span class="p">:</span><span class="n">DP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">projection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+            <span class="k">if</span> <span class="n">CUDA</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUDA</span><span class="p">:</span><span class="n">DP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">projection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataCuda</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
                             <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
                             <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span><span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span><span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
-                            <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span>
+                            <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span><span class="p">,</span><span class="n">CUDA</span><span class="o">=</span><span class="n">CUDA</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span><span class="n">DP</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">projection</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">==</span><span class="n">d</span><span class="p">],</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
                             <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
@@ -1243,7 +1441,7 @@
         
 <div class="viewcode-block" id="DepthEucl.qhpeeling">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.qhpeeling">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">qhpeeling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">qhpeeling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the convex hull peeling depth.</span>
 <span class="sd">                </span>
@@ -1254,7 +1452,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Convex hull peeling depth : {array like}</span>
+<span class="sd">        Convex hull peeling depth : array_like</span>
+<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1275,7 +1474,7 @@
 
 <div class="viewcode-block" id="DepthEucl.simplicial">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.simplicial">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">simplicial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">simplicial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute simplicial depth.</span>
 <span class="sd">                </span>
@@ -1292,7 +1491,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Simplicial depth : {array like}</span>
+<span class="sd">        Simplicial depth : array_like</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1316,7 +1516,7 @@
          
 <div class="viewcode-block" id="DepthEucl.simplicialVolume">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.simplicialVolume">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">simplicialVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">simplicialVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> 
                          <span class="n">mah_estimate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;moment&quot;</span><span class="p">,</span> <span class="n">mah_parMCD</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
                          <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1335,7 +1535,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Simplicial volume depth : {array like}</span>
+<span class="sd">        Simplicial volume depth : array_like</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1357,7 +1558,7 @@
         
 <div class="viewcode-block" id="DepthEucl.spatial">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.spatial">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">spatial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">mah_estimate</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;moment&#39;</span><span class="p">,</span><span class="n">mah_parMcd</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">spatial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">mah_estimate</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;moment&#39;</span><span class="p">,</span><span class="n">mah_parMcd</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
                 <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute spatial depth</span>
@@ -1369,7 +1570,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Spatial depth : {array like}</span>
+<span class="sd">        Spatial depth : array_like</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1391,12 +1593,12 @@
         
 <div class="viewcode-block" id="DepthEucl.zonoid">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.zonoid">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">zonoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">zonoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;neldermead&quot;</span><span class="p">,</span><span class="n">NRandom</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">n_refinements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                <span class="n">sphcap_shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="mf">1.25</span><span class="p">,</span><span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">cap_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                <span class="n">start</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="s2">&quot;goldensection&quot;</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-               <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
-                                     <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;final_depht_dir&quot;</span><span class="p">,</span>
+               <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;all_depth&quot;</span><span class="p">,</span><span class="s2">&quot;all_depth_directions&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span>
                 <span class="n">evaluate_dataset</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute zonoide depth</span>
@@ -1405,10 +1607,42 @@
 <span class="sd">        ----------</span>
 <span class="sd">        x : {array-like} of shape (n_samples,d).</span>
 <span class="sd">            Samples matrix to compute depth</span>
+<span class="sd">        output_option : str</span>
+<span class="sd">            Determines the format of the output.</span>
+<span class="sd">                - ``&quot;lowest_depth&quot;`` : single numpy array</span>
+<span class="sd">                - ``&quot;final_depth_dir&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth&quot;`` : tuple of numpy arrays </span>
+<span class="sd">                - ``&quot;all_depth_directions&quot;`` : tuple of numpy arrays </span>
 
-<span class="sd">        Results</span>
+<span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Zonoid depth : {array like}</span>
+<span class="sd">        array_like or tuple of array_like</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+<span class="sd">        The third return is all the computed depth values with respect to all approximative directions.</span>
+<span class="sd">        The fourth return is all corresponding directions. </span>
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Zonoid Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Zonoid Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Zonoid Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;all_depth_directions&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Zonoid Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+<span class="sd">                    - All computed depths</span>
+<span class="sd">                    - All respective directions</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">evaluate_dataset</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span> <span class="c1"># Dataset evaluation</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x value is set to the loaded dataset&quot;</span><span class="p">)</span>
@@ -1506,7 +1740,8 @@
 
 <span class="sd">        Results</span>
 <span class="sd">        --------</span>
-<span class="sd">            ACA directions for dimensional reduction</span>
+<span class="sd">            ACA directions for dimensional reduction : array_like</span>
+<span class="sd">            The return respresents directions that best represents anomalies in the dataset.</span>
 <span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ACA_tab</span><span class="o">=</span><span class="n">mtv</span><span class="o">.</span><span class="n">ACA</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
@@ -1547,7 +1782,7 @@
         
 <div class="viewcode-block" id="DepthEucl.computeMCD">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.computeMCD">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">computeMCD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">mat</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span><span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mfull</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">nstep</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">hiRegimeCompleteLastComp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">computeMCD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">mat</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mfull</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">nstep</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">hiRegimeCompleteLastComp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute Minimum Covariance Determinant (MCD)</span>
 
@@ -1585,7 +1820,7 @@
     
 <div class="viewcode-block" id="DepthEucl.change_dataset">
 <a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthEucl.DepthEucl.change_dataset">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">change_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">newDataset</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">newY</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newDistribution</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">keepOld</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">newDataset</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">newY</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newDistribution</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">keepOld</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Description</span>
@@ -1788,7 +2023,7 @@
 
   <p class="copyright">
     
-      © Copyright 2024, Pavlo Mozharovskyi, Rainer Dyckerhoff, Oleksii Pokotylo, Romain Valla, Leonardo Leone, Arturo Castellanos Salinas.
+      © Copyright 2024, Pavlo Mozharovskyi, Rainer Dyckerhoff, Oleksii Pokotylo, Romain Valla, Leonardo Leone, Sibsankar Singha, Arturo Castellanos Salinas.
       <br/>
     
   </p>
@@ -1797,7 +2032,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>

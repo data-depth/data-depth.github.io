@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Depth in Functional space &#8212; package &#34;data-depth&#34; 1.2.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="static/documentation_options.js?v=de840b0d"></script>
+    <script src="static/doctools.js?v=fd6eb6e6"></script>
+    <script src="static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="static/copybutton.js?v=4ea706d9"></script>
+    <script src="static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DepthFunc';</script>
+    <link rel="icon" href="static/depth-logo.jpg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Depth(-based) visualization" href="DepthPlot.html" />
+    <link rel="prev" title="Modify dataset" href="notions/change_dataset.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
+    <img src="static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="DepthEucl.html">Depth in Euclidean space (multivariate depth)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notions/Aprojection.html">Asymmetric projection depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/BetaSkeleton.html">Beta-skeleton depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Cexpchull.html">Continuous expected convex hull depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Cexpchullstar.html">Continuous modified expected convex hull depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Geometrical.html">Geometrical depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Halfspace.html">Halfspace depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/L2.html">L2-depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Mahalanobis.html">Mahalanobis depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Potential.html">Potential depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Projection.html">Projection depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Qhpeeling.html">Convex-hull-peeling depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Simplicial.html">Simplicial depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/SimplicialVolume.html">Simplicial volume depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Spatial.html">Spatial depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/Zonoid.html">Zonoid depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/ACA.html">Anomaly component analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notions/change_dataset.html">Modify dataset</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Depth in Functional space</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DepthPlot.html">Depth(-based) visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="plot/depth_mesh.html">depth_mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot/depth_plot2d.html">depth_plot2d</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="modules.html" class="nav-link">Data-depth</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Depth in Functional space</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="depth-in-functional-space">
+<h1>Depth in Functional space<a class="headerlink" href="#depth-in-functional-space" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DepthFunc</span></span><a class="reference internal" href="modules/depth/model/DepthFunc.html#DepthFunc"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Functional Data-Depth</p>
+<p>Return the depth of each sample w.r.t. a dataset, D(x,data) in a functional space, using a chosen depth notion.</p>
+<p>Data depth computes the centrality (similarity, belongness) of a sample ‘x’ given a dataset ‘data’.</p>
+<p class="rubric">Notes</p>
+<p>Possible depth notions are : <cite>mahalanobis</cite>, <cite>halfspace</cite>, <cite>zonoid</cite>, <cite>projection</cite>, <cite>aprojection</cite>, <cite>cexpchullstar</cite>, <cite>cexpchull</cite>, <cite>geometrical</cite>.</p>
+<dl class="simple">
+<dt>For each discretization point i = 1, …, L:</dt><dd><ul class="simple">
+<li><p>Extract the data slice <cite>data[:, i, :]</cite> (shape: N_data x D)</p></li>
+<li><p>Extract the query vector <cite>x[i, :]</cite> (shape: D)</p></li>
+<li><p>Compute the multivariate depth of the query vector relative to the data slice</p></li>
+<li><p>Average the results over all L time points</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="source/depth.model.html#depth.model.DepthFunc.DepthFunc.load_dataset" title="depth.model.DepthFunc.DepthFunc.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_dataset</span></code></a>([data, y, timestamp_col, ...])</p></td>
+<td><p>Load the dataset X for reference calculations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="source/depth.model.html#depth.model.DepthFunc.DepthFunc.projection_based_func_depth" title="depth.model.DepthFunc.DepthFunc.projection_based_func_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projection_based_func_depth</span></code></a>(query[, notion, ...])</p></td>
+<td><p>Compute projection-based functional depth for query functional data with respect to a reference dataset.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'timestamp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'case_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolate_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/depth/model/DepthFunc.html#DepthFunc.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Load the dataset X for reference calculations. Depth is computed with respect to this dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dataframe</em><em> or </em><em>array_like.</em>) – Dataset that will be used as base for depth computation</p></li>
+<li><p><strong>y</strong> (<em>Ignored</em><em>, </em><em>default=None</em>) – Not used, present for API consistency by convention.</p></li>
+<li><p><strong>timestamp_col</strong> (<em>str</em><em>|</em><em>int</em><em>, </em><em>default = timestamp</em>) – Column used for discretization of the dataset.
+timestamp_col can be a string indicating the name of the column or an integer for the position of the column.
+If the dataset is an array, timestamp_col must be an integer or it will not be considered and a new timestamp_col is created.</p></li>
+<li><p><strong>case_id</strong> (<em>str</em><em> | </em><em>int</em><em>, </em><em>default= &quot;case_id&quot;</em>) – Column used to separate different functions.
+For pandas dataframe, it must be either the column name or its position.
+For numpy array, it must be eather an integer for the position or it wil be considered as the dimension separation.</p></li>
+<li><p><strong>value_cols</strong> (<em>str</em><em>|</em><em>list</em><em>, </em><em>default = 'value'</em>) – Columns used for the multivariate depth computation.
+If value_cols is a string, columns with such word in the name are used.
+If value_cols is a list, it is considered the list of columns to be used.
+If data is an array, value_cols must be an integer or a list of integers, if not all columns that are not timestamp or case_id will be considered.</p></li>
+<li><p><strong>interpolate_grid</strong> (<em>bool</em><em>, </em><em>default = True</em>) – Interpolates the timestamp grid using an equaly spaced array from the minimum to the maximum timestamp value.</p></li>
+<li><p><strong>N_grid</strong> (<em>int</em><em>, </em><em>default = 10</em>) – Determines the number of grid points in the interpolation process.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>interpolation_type<span class="classifier">str, default=’linear’</span></dt><dd><p>Interpolation method to use. Supported options are those provided by
+<cite>scipy.interpolate.interp1d</cite>, including:
+- <cite>‘linear’</cite> : linear interpolation (default)
+- <cite>‘nearest’</cite> : nearest-neighbor interpolation
+- <cite>‘cubic’</cite> : cubic spline interpolation
+- <cite>‘quadratic’</cite> : quadratic spline interpolation
+- <cite>‘previous’</cite>, <cite>‘next’</cite> : stepwise interpolation</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DepthFunc model</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<dl class="simple">
+<dt>For each discretization point i = 1, …, L:</dt><dd><ul class="simple">
+<li><p>Extract the data slice <cite>data[:, i, :]</cite> (shape: N_data x D)</p></li>
+<li><p>Extract the query vector <cite>query_point[i, :]</cite> (shape: D)</p></li>
+<li><p>Compute the multivariate depth of the query vector relative to the data slice</p></li>
+<li><p>Average the results over all L time points</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">projection_based_func_depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'halfspace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'neldermead'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NRandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'lowest_depth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'final_depth_dir'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'lowest_depth'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/depth/model/DepthFunc.html#DepthFunc.projection_based_func_depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Compute projection-based functional depth for query functional data with respect to a reference dataset.</p>
+<p>This function computes depth values of functional observations (in <cite>query</cite>) relative to a
+reference dataset (<cite>df</cite>) using projection-based methods such as halfspace depth.
+Each function (trajectory) is represented by a sequence of multivariate values over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>pandas.DataFrame</em>) – Query dataset containing functional observations whose depth will be computed
+relative to <cite>df</cite>. Must have the same column structure as <cite>df</cite>.</p></li>
+<li><p><strong>notion</strong> (<em>{&quot;mahalanobis&quot;</em><em>, </em><em>&quot;halfspace&quot;</em><em>, </em><em>&quot;zonoid&quot;</em><em>, </em><em>&quot;projection&quot;</em><em>, </em><em>&quot;aprojection&quot;</em><em>, </em><em>&quot;cexpchullstar&quot;</em><em>, </em><em>&quot;cexpchull&quot;</em><em>, </em><em>&quot;geometrical&quot;}</em><em>, </em><em>default='halfspace'</em>) – Type of functional depth to compute. Currently supports ‘halfspace’, but
+can be extended to other projection-based depths.</p></li>
+<li><p><strong>solver</strong> (<em>str</em><em>, </em><em>default='neldermead'</em>) – {‘simplegrid’, ‘refinedgrid’, ‘simplerandom’, ‘refinedrandom’, ‘coordinatedescent’, ‘randomsimplices’, ‘neldermead’, ‘simulatedannealing’},
+The type of solver used to approximate the depth.
+Optimization solver used within the internal depth computation.</p></li>
+<li><p><strong>NRandom</strong> (<em>int</em><em>, </em><em>default=100</em>) – Number of random projections or optimization restarts used in computing
+projection-based depth.</p></li>
+<li><p><strong>notion</strong> – {“mahalanobis”, “halfspace”, “zonoid”, “projection”, “aprojection”, “cexpchullstar”, “cexpchull”, “geometrical”},
+Which depth will be computed.</p></li>
+<li><p><strong>n_refinements</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">refinedrandom</span></code> or <code class="docutils literal notranslate"><span class="pre">refinedgrid</span></code>, set the maximum of iteration for
+computing the depth of one point.</p></li>
+<li><p><strong>sphcap_shrink</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">refinedrandom</span></code> or <cite>refinedgrid</cite>, it’s the shrinking of the spherical cap.</p></li>
+<li><p><strong>alpha_Dirichlet</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">randomsimplices</span></code>. it’s the parameter of the Dirichlet distribution.</p></li>
+<li><p><strong>cooling_factor</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">randomsimplices</span></code>, it’s the cooling factor.</p></li>
+<li><p><strong>cap_size</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">simulatedannealing</span></code> or <code class="docutils literal notranslate"><span class="pre">neldermead</span></code>, it’s the size of the spherical cap.</p></li>
+<li><p><strong>start</strong> – {‘mean’, ‘random’},
+For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">simulatedannealing</span></code> or <code class="docutils literal notranslate"><span class="pre">neldermead</span></code>, it’s the method used to compute the first depth.</p></li>
+<li><p><strong>space</strong> – {‘sphere’, ‘euclidean’},
+For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">coordinatedescent</span></code> or <code class="docutils literal notranslate"><span class="pre">neldermead</span></code>, it’s the type of spacecin which
+the solver is running.</p></li>
+<li><p><strong>line_solver</strong> – {‘uniform’, ‘goldensection’},
+For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">coordinatedescent</span></code>, it’s the line searh strategy used by this solver.</p></li>
+<li><p><strong>bound_gc</strong> – For <code class="docutils literal notranslate"><span class="pre">solver</span></code> = <code class="docutils literal notranslate"><span class="pre">neldermead</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">True</span></code> if the search is limited to the closed hemisphere.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul>
+<li><p><strong>depth_array</strong> (<em>np.ndarray of shape (n_query,)</em>)</p></li>
+<li><p>Array of depth values, where <cite>n_query</cite> is the number of functional observations</p></li>
+<li><p>(unique <cite>case_id`s) in the `query</cite> dataset.</p></li>
+<li><p><em>The first return is the lowest comuted depth regarding all explored directions in space.</em></p></li>
+<li><p><em>The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</em> –</p>
+<dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">output_option==&quot;lowest_depth&quot;</span></code> returns:</dt><dd><dl class="simple">
+<dt>array_like</dt><dd><ul class="simple">
+<li><p>Lowest Asymmetrical Projection Detph</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>If <code class="docutils literal notranslate"><span class="pre">output_option==&quot;final_depth_dir&quot;</span></code> returns:</dt><dd><dl class="simple">
+<dt>Tuple of array_like</dt><dd><ul class="simple">
+<li><p>Lowest Asymmetrical Projection Detph</p></li>
+<li><p>Lowest depth respective sirection</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If <cite>timestamp</cite> is of type <cite>datetime64</cite>, it is converted internally to seconds</p></li>
+</ul>
+<p>relative to the global minimum timestamp (<cite>t_min</cite>).
+- Duplicate timestamps within each <cite>case_id</cite> group are automatically dropped.
+- Interpolation uses linear extrapolation outside the observed time range.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notions/change_dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modify dataset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DepthPlot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Depth(-based) visualization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/DepthFunc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Pavlo Mozharovskyi, Rainer Dyckerhoff, Oleksii Pokotylo, Romain Valla, Leonardo Leone, Sibsankar Singha, Arturo Castellanos Salinas.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

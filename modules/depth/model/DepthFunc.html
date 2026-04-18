@@ -1,0 +1,1112 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>depth.model.DepthFunc &#8212; package &#34;data-depth&#34; 1.2.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=de840b0d"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=4ea706d9"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/depth/model/DepthFunc';</script>
+    <link rel="icon" href="../../../_static/depth-logo.jpg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-light" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
+    <img src="../../../_static/depth-logo.jpg" class="logo__image only-dark pst-js-only" alt="package "data-depth" 1.2.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../introduction.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    Data-depth
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../Examples.html">
+    Examples using data-depth library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../credits.html">
+    Credits
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../license.html">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/data-depth" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">depth.model.DepthFunc</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for depth.model.DepthFunc</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">multivariate</span> <span class="k">as</span> <span class="n">mvt</span>
+<span class="c1"># from DepthEucl import DepthEucl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+
+
+<div class="viewcode-block" id="DepthFunc">
+<a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthFunc.DepthFunc">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DepthFunc</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Functional Data-Depth</span>
+<span class="sd">    </span>
+<span class="sd">    Return the depth of each sample w.r.t. a dataset, D(x,data) in a functional space, using a chosen depth notion.</span>
+
+<span class="sd">    Data depth computes the centrality (similarity, belongness) of a sample &#39;x&#39; given a dataset &#39;data&#39;.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Possible depth notions are : `mahalanobis`, `halfspace`, `zonoid`, `projection`, `aprojection`, `cexpchullstar`, `cexpchull`, `geometrical`.</span>
+<span class="sd">    </span>
+<span class="sd">    For each discretization point i = 1, ..., L:</span>
+<span class="sd">        - Extract the data slice `data[:, i, :]` (shape: N_data x D)</span>
+<span class="sd">        - Extract the query vector `x[i, :]` (shape: D)</span>
+<span class="sd">        - Compute the multivariate depth of the query vector relative to the data slice</span>
+<span class="sd">        - Average the results over all L time points</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span>
+    
+<div class="viewcode-block" id="DepthFunc.load_dataset">
+<a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthFunc.DepthFunc.load_dataset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                     <span class="n">timestamp_col</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">int</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span><span class="n">value_cols</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">list</span><span class="o">|</span><span class="nb">int</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">case_id</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">int</span><span class="o">=</span><span class="s2">&quot;case_id&quot;</span><span class="p">,</span> 
+                     <span class="n">interpolate_grid</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">N_grid</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                     <span class="n">interpolation_type</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the dataset X for reference calculations. Depth is computed with respect to this dataset.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : dataframe or array_like.</span>
+<span class="sd">            Dataset that will be used as base for depth computation</span>
+<span class="sd">            </span>
+<span class="sd">        y : Ignored, default=None</span>
+<span class="sd">            Not used, present for API consistency by convention.</span>
+<span class="sd">        </span>
+<span class="sd">        timestamp_col : str|int, default = timestamp</span>
+<span class="sd">            Column used for discretization of the dataset.</span>
+<span class="sd">            timestamp_col can be a string indicating the name of the column or an integer for the position of the column.</span>
+<span class="sd">            If the dataset is an array, timestamp_col must be an integer or it will not be considered and a new timestamp_col is created. </span>
+
+<span class="sd">        case_id : str | int, default= &quot;case_id&quot;</span>
+<span class="sd">            Column used to separate different functions.</span>
+<span class="sd">            For pandas dataframe, it must be either the column name or its position.</span>
+<span class="sd">            For numpy array, it must be eather an integer for the position or it wil be considered as the dimension separation.</span>
+
+<span class="sd">        value_cols: str|list, default = &#39;value&#39;</span>
+<span class="sd">            Columns used for the multivariate depth computation.</span>
+<span class="sd">            If value_cols is a string, columns with such word in the name are used.</span>
+<span class="sd">            If value_cols is a list, it is considered the list of columns to be used.</span>
+<span class="sd">            If data is an array, value_cols must be an integer or a list of integers, if not all columns that are not timestamp or case_id will be considered.</span>
+<span class="sd">        </span>
+<span class="sd">        interpolate_grid : bool, default = True   </span>
+<span class="sd">            Interpolates the timestamp grid using an equaly spaced array from the minimum to the maximum timestamp value.  </span>
+
+<span class="sd">        N_grid : int, default = 10</span>
+<span class="sd">            Determines the number of grid points in the interpolation process.</span>
+
+
+<span class="sd">        interpolation_type : str, default=&#39;linear&#39;</span>
+<span class="sd">            Interpolation method to use. Supported options are those provided by</span>
+<span class="sd">            `scipy.interpolate.interp1d`, including:</span>
+<span class="sd">            - `&#39;linear&#39;` : linear interpolation (default)</span>
+<span class="sd">            - `&#39;nearest&#39;` : nearest-neighbor interpolation</span>
+<span class="sd">            - `&#39;cubic&#39;` : cubic spline interpolation</span>
+<span class="sd">            - `&#39;quadratic&#39;` : quadratic spline interpolation</span>
+<span class="sd">            - `&#39;previous&#39;`, `&#39;next&#39;` : stepwise interpolation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ---------</span>
+<span class="sd">        DepthFunc model</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        For each discretization point i = 1, ..., L:</span>
+<span class="sd">            - Extract the data slice `data[:, i, :]` (shape: N_data x D)</span>
+<span class="sd">            - Extract the query vector `query_point[i, :]` (shape: D)</span>
+<span class="sd">            - Compute the multivariate depth of the query vector relative to the data slice</span>
+<span class="sd">            - Average the results over all L time points</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You must load a dataset&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">==</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="s1">&#39;Data must be a 3D numpy array of a pandas DataFrame&#39;</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">TSnp</span><span class="o">=</span><span class="n">timestamp_col</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CInp</span><span class="o">=</span><span class="n">case_id</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_3Dnp_tp_pd</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TSnp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CInp</span><span class="p">)</span>
+            <span class="n">timestamp_col</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span>
+            <span class="n">value_cols</span><span class="o">=</span><span class="s2">&quot;value&quot;</span>
+            <span class="n">case_id</span><span class="o">=</span><span class="s2">&quot;case_id&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">timestamp_col</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">timestamp_col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>    
+                <span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="o">=</span><span class="n">timestamp_col</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;timestamp_col is not a column in the data.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">timestamp_col</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">timestamp_col</span><span class="o">&gt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;timestamp_col is greater than the number of columns.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">timestamp_col</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;timestamp_col is set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+         
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value_cols</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span> <span class="o">=</span> <span class="n">value_cols</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;value_cols is an empty list, value_cols should be a suffix for different columns&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value_cols</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span> <span class="o">=</span> <span class="n">value_cols</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;value_cols is set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">case_id</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">case_id</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="o">=</span><span class="n">case_id</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;case_id is not a column of the data&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">case_id</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">case_id</span><span class="o">&gt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;case_id is greater than the number of columns.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">case_id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">case_id</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;case_id is set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_min</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">])</span>
+        <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_MinMax</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+
+        <span class="k">if</span> <span class="n">interpolate_grid</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span> <span class="o">=</span> <span class="n">N_grid</span>            
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">):</span>
+                <span class="n">new_domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_domain</span> <span class="o">=</span> <span class="n">new_domain</span>
+        <span class="c1"># for i in np.unique(data.case_id)</span>
+        <span class="k">elif</span> <span class="n">interpolate_grid</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">new_domain</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">-</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">new_domain</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">-</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())))</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_type</span><span class="o">=</span><span class="n">interpolation_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_syncronise_over_time</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        
+        <span class="k">return</span> <span class="bp">self</span>  </div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_3Dnp_tp_pd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">timestamp_col</span><span class="p">,</span> <span class="n">case_id</span><span class="p">,):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;data must be a 3D numpy array or pandas dataframe&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">timestamp_col</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="n">timestamp_col</span><span class="o">!=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;timestamp_col is set to </span><span class="si">{</span><span class="n">timestamp_col</span><span class="si">}</span><span class="s2">, strings are only accepted with pandas dataframe.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;timestamp_col is set to a equaly spaced grid&quot;</span><span class="p">)</span>
+            <span class="n">TS</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">timestamp_col</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">timestamp_col</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">timestamp_col</span><span class="o">&gt;</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;timestamp_col is set to a value greater than the dataset&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;timestamp_col must be an integer, it will not be considered for further computations&quot;</span><span class="p">)</span>
+            <span class="n">timestamp_col</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">case_id</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="n">case_id</span><span class="o">!=</span><span class="s2">&quot;case_id&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;case_id is set to </span><span class="si">{</span><span class="n">case_id</span><span class="si">}</span><span class="s2">, strings are only accepted with pandas dataframe.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;case_id is set to the first dimension of the query.&quot;</span><span class="p">)</span>
+            <span class="n">case_id</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">case_id</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">case_id</span><span class="o">&gt;</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;case_id is set to a value greater than the dataset&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;case_id must be an integer, it will not be considered for further computations&quot;</span><span class="p">)</span>
+            <span class="n">case_id</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="n">nCols</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">timestamp_col</span><span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">timestamp_col</span><span class="o">=</span><span class="n">nCols</span>
+            <span class="n">nCols</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">case_id</span><span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">case_id</span><span class="o">=</span><span class="n">nCols</span>
+            <span class="n">nCols</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">valCols</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;value_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nCols</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;case_id&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">valCols</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="c1"># dfi=np.zeros((data.shape[1],nCols))</span>
+            <span class="n">dfi</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">nCols</span><span class="p">)),</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;case_id&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">valCols</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">=</span><span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nCols</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="n">timestamp_col</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">j</span><span class="o">&gt;=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">dfi</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span> 
+                        <span class="n">dfi</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,:,</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="n">j</span><span class="o">==</span><span class="n">case_id</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">j</span><span class="o">&gt;=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">dfi</span><span class="p">[</span><span class="s2">&quot;case_id&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="n">i</span>
+                    <span class="k">else</span><span class="p">:</span> 
+                        <span class="n">dfi</span><span class="p">[</span><span class="s2">&quot;case_id&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,:,</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># print(f&quot;value_{c}&quot;)</span>
+                    <span class="n">dfi</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;value_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,:,</span><span class="n">j</span><span class="p">]</span>
+                    <span class="n">c</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">dfi</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># print(dfi,timestamp_col)</span>
+        
+        <span class="k">return</span> <span class="n">df</span>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_MinMax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        fix min max values for border times</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">caso</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]):</span>
+            <span class="c1"># df[df.case_id==i][minT]</span>
+            <span class="c1"># print(df[(df.case_id==i)&amp;(df.timestamp==df[df.case_id==i][&quot;timestamp&quot;].min())][[&quot;case_id&quot;,&quot;timestamp&quot;,*val_cols]])</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">),</span><span class="n">col</span>
+                                 <span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">first_valid_index</span><span class="p">()][</span><span class="n">col</span><span class="p">]</span>
+                        
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">firstCol</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="p">)</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">col</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">:</span>
+                        <span class="n">firstCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">caso</span>
+                    <span class="k">elif</span> <span class="n">col</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">:</span>
+                        <span class="n">firstCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span>
+                    <span class="k">elif</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">:</span>
+                        <span class="n">firstCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][[</span><span class="n">col</span><span class="p">]]</span><span class="o">.</span><span class="n">first_valid_index</span><span class="p">()][</span><span class="n">col</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">firstCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][[</span><span class="n">col</span><span class="p">]]</span><span class="o">.</span><span class="n">first_valid_index</span><span class="p">()][</span><span class="n">col</span><span class="p">]</span>
+                <span class="n">firstCol</span> <span class="o">=</span> <span class="n">firstCol</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+                <span class="c1"># print(firstCol.dtypes)</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">firstCol</span><span class="p">,</span><span class="n">data</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="c1"># print(data[data[self.case_id]==caso])</span>
+
+                
+
+            <span class="k">if</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span><span class="p">),</span><span class="n">col</span>
+                                 <span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">last_valid_index</span><span class="p">()][</span><span class="n">col</span><span class="p">]</span>
+                        
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lastCol</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="p">)</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">col</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">:</span>
+                        <span class="n">lastCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">caso</span>
+                    <span class="k">elif</span> <span class="n">col</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">:</span>
+                        <span class="n">lastCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span>
+                    <span class="k">elif</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">:</span>
+                        <span class="n">lastCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">last_valid_index</span><span class="p">(),</span><span class="n">col</span><span class="p">]</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="n">lastCol</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">]</span><span class="o">==</span><span class="n">caso</span><span class="p">)][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">last_valid_index</span><span class="p">(),</span><span class="n">col</span><span class="p">]</span>
+                <span class="n">lastCol</span> <span class="o">=</span> <span class="n">lastCol</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+                <span class="c1"># print(lastCol)</span>
+            <span class="c1">#     # print(firstCol.dtypes)</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span><span class="n">lastCol</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_syncronise_over_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="p">):</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">case</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">):</span>
+                <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>
+
+                <span class="k">if</span> <span class="n">interpolation</span><span class="p">:</span>
+                    <span class="n">interp_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolate</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">],</span> 
+                                                        <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_domain</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_type</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">interp_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">])</span>
+                <span class="n">M</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interp_values</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">case</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">case_id</span><span class="p">):</span>
+                <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>
+                
+                <span class="k">if</span> <span class="n">interpolation</span><span class="p">:</span>
+                    <span class="n">interp_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolate</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">],</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_domain</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">interp_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">])</span>
+                <span class="n">M</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interp_values</span><span class="p">)</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">M</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value_matrix</span><span class="p">,</span> <span class="n">original_domain</span><span class="p">,</span> <span class="n">new_domain</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Interpolate functional data (1D or ND) onto a new domain.</span>
+
+<span class="sd">        It supports interpolation along any specified axis and handles missing (`NaN`) values by skipping them </span>
+<span class="sd">        during interpolation. </span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        value_matrix : array-like of shape (n_points, ...) or (n_points,)</span>
+<span class="sd">            Array containing the functional data to be interpolated.</span>
+<span class="sd">            - For 1D input: a single function defined on `original_domain`.</span>
+<span class="sd">            - For ND input: multi-dimensional observations, where</span>
+<span class="sd">            interpolation is performed along the specified `axis`.</span>
+
+<span class="sd">        original_domain : array-like of shape (n_points,)</span>
+<span class="sd">            The domain (e.g., time or spatial coordinates) corresponding to the data </span>
+<span class="sd">            in `value_matrix`. Must be strictly increasing and match the first dimension </span>
+<span class="sd">            of `value_matrix` along the interpolation axis.</span>
+
+<span class="sd">        new_domain : array-like of shape (n_new_points,)</span>
+<span class="sd">            The new domain points where the interpolation will be evaluated. </span>
+
+
+<span class="sd">        axis : int, default=0</span>
+<span class="sd">            Axis along which to perform the interpolation. By default, interpolation </span>
+<span class="sd">            is performed along the first axis (rows). </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        interp_value_matrix : np.ndarray</span>
+<span class="sd">            Interpolated data array evaluated at the `new_domain`.</span>
+<span class="sd">            - If input was 1D, returns a 1D NumPy array of shape `(len(new_domain),)`.</span>
+<span class="sd">            - If input was ND, returns an array of shape similar to `value_matrix`, </span>
+<span class="sd">            except that the length along the interpolation axis becomes `len(new_domain)`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        
+        <span class="n">value_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value_matrix</span><span class="p">)</span>
+        <span class="n">original_domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">original_domain</span><span class="p">)</span>
+        <span class="n">new_domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">new_domain</span><span class="p">)</span>
+
+        <span class="c1"># 1D case</span>
+        <span class="k">if</span> <span class="n">value_matrix</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">non_nan_idx</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">value_matrix</span><span class="p">)</span>
+            <span class="c1"># TODO check if more thqn 2 values are not null</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">original_domain</span><span class="p">[</span><span class="n">non_nan_idx</span><span class="p">],</span> <span class="n">value_matrix</span><span class="p">[</span><span class="n">non_nan_idx</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">new_domain</span><span class="p">)</span>
+
+        <span class="c1"># Move interpolation axis to 0</span>
+        <span class="k">if</span> <span class="n">axis</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">value_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">value_matrix</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">original_shape</span> <span class="o">=</span> <span class="n">value_matrix</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">flat_value_matrix</span> <span class="o">=</span> <span class="n">value_matrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">original_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">interp_flat_value_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">new_domain</span><span class="p">),</span> <span class="n">flat_value_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">value_matrix</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># Interpolate each flattened column</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">flat_value_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">non_nan_idx</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">flat_value_matrix</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
+            <span class="c1"># TODO check if more thqn 2 values are not null</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">original_domain</span><span class="p">[</span><span class="n">non_nan_idx</span><span class="p">],</span> <span class="n">flat_value_matrix</span><span class="p">[:,</span> <span class="n">j</span><span class="p">][</span><span class="n">non_nan_idx</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>
+            <span class="n">interp_flat_value_matrix</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">new_domain</span><span class="p">)</span>
+
+        <span class="c1"># Reshape back to original dimensions</span>
+        <span class="n">interp_value_matrix</span> <span class="o">=</span> <span class="n">interp_flat_value_matrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">new_domain</span><span class="p">),)</span> <span class="o">+</span> <span class="n">original_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+        <span class="c1"># Move axis back to original position</span>
+        <span class="k">if</span> <span class="n">axis</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">interp_value_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">interp_value_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">interp_value_matrix</span>
+    
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_int_depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query_point</span><span class="p">,</span> <span class="n">notion</span><span class="o">=</span><span class="s1">&#39;halfspace&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;neldermead&#39;</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the integrated functional depth (IFD) of a query function with respect to a sample of functional data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : np.ndarray</span>
+<span class="sd">            A 3D NumPy array of shape (N_data, L, D)</span>
+<span class="sd">            representing the sample of functional data:</span>
+<span class="sd">            - N_data: number of functional observations (samples)</span>
+<span class="sd">            - L: number of discretization points per function</span>
+<span class="sd">            - D: dimension of the data at each discretization point</span>
+
+<span class="sd">            Each element data[j, i, :] corresponds to the D-dimensional</span>
+<span class="sd">            observation of the j-th function at discretization point i.</span>
+
+<span class="sd">        query_point : np.ndarray</span>
+<span class="sd">            A 2D NumPy array of shape (L, D)</span>
+<span class="sd">            representing the function for which the integrated depth is to be computed.</span>
+<span class="sd">            It has the same structure as a single element of `data`.</span>
+
+<span class="sd">        type_of_depth : str, optional, default=&#39;halfspace&#39;</span>
+<span class="sd">            The name of the multivariate depth function to use for each time slice.</span>
+<span class="sd">            Typical choices include:</span>
+<span class="sd">            - &#39;halfspace&#39;</span>
+<span class="sd">            - &#39;projection&#39;</span>
+<span class="sd">            - &#39;simplicial&#39;, etc.</span>
+
+<span class="sd">        solver : str, optional, default=&#39;neldermead&#39;</span>
+<span class="sd">            The numerical method used to approximate the multivariate depth.</span>
+<span class="sd">            For example, &#39;neldermead&#39; uses the Nelder–Mead optimization algorithm.</span>
+
+<span class="sd">        NRandom : int, optional, default=100</span>
+<span class="sd">            The number of random projections (or random directions)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        functional_depth_val : float</span>
+<span class="sd">            The integrated functional depth of `query_point` with respect to `data`,</span>
+<span class="sd">            computed as the average of the multivariate depths across all L discretization points.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        For each discretization point i = 1, ..., L:</span>
+<span class="sd">            - Extract the data slice `data[:, i, :]` (shape: N_data x D)</span>
+<span class="sd">            - Extract the query vector `query_point[i, :]` (shape: D)</span>
+<span class="sd">            - Compute the multivariate depth of the query vector relative to the data slice</span>
+<span class="sd">            - Average the results over all L time points</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">total_depth_sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">l_points</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">query_point</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="p">,</span><span class="n">alpha_Dirichlet</span><span class="p">,</span><span class="n">cooling_factor</span><span class="p">,</span>\
+        <span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_hyperparDepth</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span> <span class="n">directions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">query_point</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="c1"># if d==1:option=1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l_points</span><span class="p">):</span>
+            <span class="c1"># data_component_slice: N_data x D matrix (all functions at time i)</span>
+            <span class="n">data_component_slice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_array</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+
+            <span class="c1"># query_component: D-dimensional vector (query function at time i)</span>
+            <span class="n">query_component</span> <span class="o">=</span> <span class="n">query_point</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+ 
+            <span class="c1"># Compute depth at time i</span>
+            <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">time_component_depth</span> <span class="o">=</span> <span class="n">mvt</span><span class="o">.</span><span class="n">depth_approximation</span><span class="p">(</span>
+                    <span class="n">query_component</span><span class="p">,</span> <span class="n">data_component_slice</span><span class="p">,</span>
+                    <span class="n">notion</span><span class="p">,</span> <span class="n">solver</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">,</span> 
+                    <span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+                    <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
+                    <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span>
+                    <span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span><span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span>
+                    <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">time_component_depth</span><span class="p">,</span> <span class="n">directions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvt</span><span class="o">.</span><span class="n">depth_approximation</span><span class="p">(</span>
+                        <span class="n">query_component</span><span class="p">,</span> <span class="n">data_component_slice</span><span class="p">,</span>
+                        <span class="n">notion</span><span class="p">,</span> <span class="n">solver</span><span class="p">,</span> <span class="n">NRandom</span><span class="p">,</span> 
+                        <span class="n">option</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                        <span class="n">n_refinements</span><span class="o">=</span><span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">sphcap_shrink</span><span class="p">,</span>
+                        <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">alpha_Dirichlet</span><span class="p">,</span>
+                        <span class="n">cooling_factor</span><span class="o">=</span><span class="n">cooling_factor</span><span class="p">,</span><span class="n">cap_size</span><span class="o">=</span><span class="n">cap_size</span><span class="p">,</span>
+                        <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="o">=</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span><span class="o">=</span><span class="n">bound_gc</span>
+                    <span class="p">)</span>
+            <span class="n">total_depth_sum</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">time_component_depth</span><span class="p">,</span><span class="n">nan</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Average depth over all L time points</span>
+        <span class="n">functional_depth_val</span> <span class="o">=</span> <span class="n">total_depth_sum</span> <span class="o">/</span> <span class="n">l_points</span>
+
+        <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span><span class="k">return</span> <span class="n">functional_depth_val</span> 
+        <span class="k">else</span><span class="p">:</span><span class="k">return</span> <span class="n">functional_depth_val</span><span class="p">,</span><span class="n">directions</span>
+
+    
+<div class="viewcode-block" id="DepthFunc.projection_based_func_depth">
+<a class="viewcode-back" href="../../../source/depth.model.html#depth.model.DepthFunc.DepthFunc.projection_based_func_depth">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">projection_based_func_depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span>
+                                    <span class="n">notion</span><span class="o">=</span><span class="s1">&#39;halfspace&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;neldermead&#39;</span><span class="p">,</span> <span class="n">NRandom</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                    <span class="n">output_option</span><span class="p">:</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute projection-based functional depth for query functional data with respect to a reference dataset.</span>
+
+<span class="sd">        This function computes depth values of functional observations (in `query`) relative to a </span>
+<span class="sd">        reference dataset (`df`) using projection-based methods such as halfspace depth.</span>
+<span class="sd">        Each function (trajectory) is represented by a sequence of multivariate values over time.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        query : pandas.DataFrame</span>
+<span class="sd">            Query dataset containing functional observations whose depth will be computed</span>
+<span class="sd">            relative to `df`. Must have the same column structure as `df`.</span>
+
+<span class="sd">        notion : {&quot;mahalanobis&quot;, &quot;halfspace&quot;, &quot;zonoid&quot;, &quot;projection&quot;, &quot;aprojection&quot;, &quot;cexpchullstar&quot;, &quot;cexpchull&quot;, &quot;geometrical&quot;}, default=&#39;halfspace&#39;</span>
+<span class="sd">            Type of functional depth to compute. Currently supports &#39;halfspace&#39;, but </span>
+<span class="sd">            can be extended to other projection-based depths.</span>
+
+<span class="sd">        solver : str, default=&#39;neldermead&#39;</span>
+<span class="sd">            {&#39;simplegrid&#39;, &#39;refinedgrid&#39;, &#39;simplerandom&#39;, &#39;refinedrandom&#39;, &#39;coordinatedescent&#39;, &#39;randomsimplices&#39;, &#39;neldermead&#39;, &#39;simulatedannealing&#39;},</span>
+<span class="sd">            The type of solver used to approximate the depth.</span>
+<span class="sd">            Optimization solver used within the internal depth computation.</span>
+
+<span class="sd">        NRandom : int, default=100</span>
+<span class="sd">            Number of random projections or optimization restarts used in computing </span>
+<span class="sd">            projection-based depth.</span>
+
+<span class="sd">        notion </span>
+<span class="sd">            {&quot;mahalanobis&quot;, &quot;halfspace&quot;, &quot;zonoid&quot;, &quot;projection&quot;, &quot;aprojection&quot;, &quot;cexpchullstar&quot;, &quot;cexpchull&quot;, &quot;geometrical&quot;},</span>
+<span class="sd">            Which depth will be computed.</span>
+<span class="sd">                            </span>
+<span class="sd">        n_refinements  </span>
+<span class="sd">            For ``solver`` = ``refinedrandom`` or ``refinedgrid``, set the maximum of iteration for </span>
+<span class="sd">            computing the depth of one point. </span>
+<span class="sd">            </span>
+<span class="sd">        sphcap_shrink  </span>
+<span class="sd">            For ``solver`` = ``refinedrandom`` or `refinedgrid`, it&#39;s the shrinking of the spherical cap. </span>
+<span class="sd">            </span>
+<span class="sd">        alpha_Dirichlet  </span>
+<span class="sd">            For ``solver`` = ``randomsimplices``. it&#39;s the parameter of the Dirichlet distribution. </span>
+<span class="sd">            </span>
+<span class="sd">        cooling_factor  </span>
+<span class="sd">            For ``solver`` = ``randomsimplices``, it&#39;s the cooling factor. </span>
+<span class="sd">            </span>
+<span class="sd">        cap_size </span>
+<span class="sd">            For ``solver`` = ``simulatedannealing`` or ``neldermead``, it&#39;s the size of the spherical cap. </span>
+<span class="sd">            </span>
+<span class="sd">        start </span>
+<span class="sd">            {&#39;mean&#39;, &#39;random&#39;}, </span>
+<span class="sd">            For ``solver`` = ``simulatedannealing`` or ``neldermead``, it&#39;s the method used to compute the first depth.</span>
+<span class="sd">            </span>
+<span class="sd">        space  </span>
+<span class="sd">            {&#39;sphere&#39;, &#39;euclidean&#39;}, </span>
+<span class="sd">            For ``solver`` = ``coordinatedescent`` or ``neldermead``, it&#39;s the type of spacecin which</span>
+<span class="sd">            the solver is running.</span>
+<span class="sd">            </span>
+<span class="sd">        line_solver </span>
+<span class="sd">            {&#39;uniform&#39;, &#39;goldensection&#39;}, </span>
+<span class="sd">            For ``solver`` = ``coordinatedescent``, it&#39;s the line searh strategy used by this solver.</span>
+<span class="sd">            </span>
+<span class="sd">        bound_gc </span>
+<span class="sd">            For ``solver`` = ``neldermead``, it&#39;s ``True`` if the search is limited to the closed hemisphere.</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        depth_array : np.ndarray of shape (n_query,)</span>
+<span class="sd">        Array of depth values, where `n_query` is the number of functional observations </span>
+<span class="sd">        (unique `case_id`s) in the `query` dataset.</span>
+<span class="sd">        The first return is the lowest comuted depth regarding all explored directions in space.</span>
+<span class="sd">        The second return is the direction that best represents the analyzed point, the direction corresponfing to the lowest depth.</span>
+
+<span class="sd">            If ``output_option==&quot;lowest_depth&quot;`` returns:</span>
+<span class="sd">                array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">        </span>
+<span class="sd">            If ``output_option==&quot;final_depth_dir&quot;`` returns:</span>
+<span class="sd">                Tuple of array_like</span>
+<span class="sd">                    - Lowest Asymmetrical Projection Detph</span>
+<span class="sd">                    - Lowest depth respective sirection</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - If `timestamp` is of type `datetime64`, it is converted internally to seconds</span>
+<span class="sd">        relative to the global minimum timestamp (`t_min`).</span>
+<span class="sd">        - Duplicate timestamps within each `case_id` group are automatically dropped.</span>
+<span class="sd">        - Interpolation uses linear extrapolation outside the observed time range.&quot;&quot;&quot;</span>
+  
+        
+
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_depth</span><span class="p">(</span><span class="n">notion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">query</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_3Dnp_tp_pd</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TSnp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CInp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">query</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Values with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="si">}</span><span class="s2"> greater the base set domain are excluded&quot;</span><span class="p">)</span>
+            <span class="n">query</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">query</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">t_max</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">query</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Values with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="si">}</span><span class="s2"> smaller the base set domain are excluded&quot;</span><span class="p">)</span>
+            <span class="n">query</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">query</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp_col</span><span class="p">]</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">t_min</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryMM</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_MinMax</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">query_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_syncronise_over_time</span><span class="p">(</span><span class="n">queryMM</span><span class="p">,)</span>
+        <span class="n">depth_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">query_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value_cols</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">output_option</span><span class="o">==</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Space dimention is 1, output_option is set to &#39;lowest_depth&#39;&quot;</span><span class="p">)</span>
+            <span class="n">output_option</span><span class="o">=</span><span class="s2">&quot;lowest_depth&quot;</span>
+        <span class="k">if</span> <span class="n">output_option</span><span class="o">==</span><span class="s2">&quot;lowest_depth&quot;</span><span class="p">:</span>
+            <span class="n">option</span><span class="o">=</span><span class="mi">1</span>
+            <span class="n">direction_array</span><span class="o">=</span><span class="kc">None</span>
+        <span class="k">elif</span> <span class="n">output_option</span><span class="o">==</span><span class="s2">&quot;final_depth_dir&quot;</span><span class="p">:</span>
+            <span class="n">option</span><span class="o">=</span><span class="mi">2</span>
+            <span class="n">direction_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">query_array</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">option</span><span class="o">=</span><span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid output_option, output_option set to &#39;lowest_depth&#39;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">query_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">depth_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_int_depth</span><span class="p">(</span><span class="n">query_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">notion</span><span class="o">=</span><span class="n">notion</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+                                            <span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            
+            <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">depth_array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">direction_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_int_depth</span><span class="p">(</span><span class="n">query_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">notion</span><span class="o">=</span><span class="n">notion</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+                                            <span class="n">NRandom</span><span class="o">=</span><span class="n">NRandom</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                
+       
+        <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span><span class="k">return</span> <span class="n">depth_array</span> 
+        <span class="k">else</span><span class="p">:</span><span class="k">return</span>  <span class="n">depth_array</span><span class="p">,</span><span class="n">direction_array</span></div>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_hyperparDepth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">n_refinements</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">sphcap_shrink</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">alpha_Dirichlet</span> <span class="o">=</span> <span class="mf">1.25</span>
+        <span class="n">cooling_factor</span> <span class="o">=</span> <span class="mf">0.95</span>
+        <span class="n">cap_size</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span>
+        <span class="n">space</span> <span class="o">=</span> <span class="s2">&quot;sphere&quot;</span>
+        <span class="n">line_solver</span> <span class="o">=</span> <span class="s2">&quot;goldensection&quot;</span>
+        <span class="n">bound_gc</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;n_refinements&quot;</span><span class="p">:</span>
+                <span class="n">n_refinements</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;sphcap_shrink&quot;</span><span class="p">:</span>
+                <span class="n">sphcap_shrink</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;alpha_Dirichlet&quot;</span><span class="p">:</span>
+                <span class="n">alpha_Dirichlet</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;cooling_factor&quot;</span><span class="p">:</span>
+                <span class="n">cooling_factor</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;cap_size&quot;</span><span class="p">:</span>
+                <span class="n">cap_size</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;start&quot;</span><span class="p">:</span>
+                <span class="n">start</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;space&quot;</span><span class="p">:</span>
+                <span class="n">space</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;line_solver&quot;</span><span class="p">:</span>
+                <span class="n">line_solver</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">==</span><span class="s2">&quot;bound_gc&quot;</span><span class="p">:</span>
+                <span class="n">bound_gc</span><span class="o">=</span><span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a parameter for depth computation&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">n_refinements</span><span class="p">,</span><span class="n">sphcap_shrink</span><span class="p">,</span><span class="n">alpha_Dirichlet</span><span class="p">,</span><span class="n">cooling_factor</span><span class="p">,</span><span class="n">cap_size</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">space</span><span class="p">,</span><span class="n">line_solver</span><span class="p">,</span><span class="n">bound_gc</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+        <span class="n">all_depths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mahalanobis&quot;</span><span class="p">,</span> <span class="s2">&quot;halfspace&quot;</span><span class="p">,</span> <span class="s2">&quot;zonoid&quot;</span><span class="p">,</span> <span class="s2">&quot;projection&quot;</span><span class="p">,</span> <span class="s2">&quot;aprojection&quot;</span><span class="p">,</span> <span class="s2">&quot;cexpchullstar&quot;</span><span class="p">,</span> <span class="s2">&quot;cexpchull&quot;</span><span class="p">,</span> <span class="s2">&quot;geometrical&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_depths</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Depths approximation is available only for depths in </span><span class="si">%s</span><span class="s2">, got </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">all_depths</span><span class="p">,</span> <span class="n">depth</span><span class="p">))</span>    </div>
+
+        
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Pavlo Mozharovskyi, Rainer Dyckerhoff, Oleksii Pokotylo, Romain Valla, Leonardo Leone, Sibsankar Singha, Arturo Castellanos Salinas.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
